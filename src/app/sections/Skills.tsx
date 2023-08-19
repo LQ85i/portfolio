@@ -55,15 +55,26 @@ const Skills: React.FC = () => {
     }
     if (stars % 1 != 0) {
       arr.push(
-        <div className="relative" key={5}>
-          <Image
-            className="min-w-[29px] min-h-[29px] max-w-[29px] max-h-[29px]"
-            width={29}
-            height={29}
-            src={icon_star1}
-            alt="Star icon half"
-          />
-          <div className="h-[31px] w-[15px] absolute left-[14px] top-[0px] bg-[#0D347A] bg-opacity-[90%]"></div>
+        <div className="relative flex" key={5}>
+          <div className="min-w-[14.5px] min-h-[29px] max-w-[14.5px] max-h-[29px] overflow-hidden">
+            <Image
+              className="min-w-[29px] min-h-[29px] max-w-[29px] max-h-[29px]"
+              width={29}
+              height={29}
+              src={icon_star1}
+              alt="Star icon half"
+            />
+          </div>
+          <div className="min-w-[14.5px] min-h-[29px] max-w-[14.5px] max-h-[29px] overflow-hidden">
+            <Image
+              key={5}
+              className="ml-[-14.5px] min-w-[29px] min-h-[29px] max-w-[29px] max-h-[29px]"
+              width={29}
+              height={29}
+              src={icon_star2}
+              alt="Star icon"
+            />
+          </div>
         </div>
       );
     }
