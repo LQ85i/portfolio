@@ -45,7 +45,7 @@ const Skills: React.FC = () => {
       arr.push(
         <Image
           key={i}
-          className="min-w-[29px] min-h-[29px] max-w-[29px] max-h-[29px]"
+          className="xs:min-w-[29px] xs:min-h-[29px] xs:max-w-[29px] xs:max-h-[29px] h-[20px] w-[20px]"
           width={29}
           height={29}
           src={icon_star1}
@@ -56,19 +56,19 @@ const Skills: React.FC = () => {
     if (stars % 1 != 0) {
       arr.push(
         <div className="relative flex" key={5}>
-          <div className="min-w-[14.5px] min-h-[29px] max-w-[14.5px] max-h-[29px] overflow-hidden">
+          <div className="xs:min-w-[14.5px] xs:min-h-[29px] xs:max-w-[14.5px] xs:max-h-[29px] w-[10px] h-[20px] overflow-hidden">
             <Image
-              className="min-w-[29px] min-h-[29px] max-w-[29px] max-h-[29px]"
+              className="xs:min-w-[29px] xs:min-h-[29px] xs:max-w-[29px] xs:max-h-[29px] min-w-[20px] min-h-[20px]"
               width={29}
               height={29}
               src={icon_star1}
               alt="Star icon half"
             />
           </div>
-          <div className="min-w-[14.5px] min-h-[29px] max-w-[14.5px] max-h-[29px] overflow-hidden">
+          <div className="xs:min-w-[14.5px] xs:min-h-[29px] xs:max-w-[14.5px] xs:max-h-[29px] w-[10px] h-[20px] overflow-hidden">
             <Image
               key={5}
-              className="ml-[-14.5px] min-w-[29px] min-h-[29px] max-w-[29px] max-h-[29px]"
+              className="xs:ml-[-14.5px] ml-[-10px] xs:min-w-[29px] xs:min-h-[29px] xs:max-w-[29px] xs:max-h-[29px] min-w-[20px] min-h-[20px]"
               width={29}
               height={29}
               src={icon_star2}
@@ -84,7 +84,7 @@ const Skills: React.FC = () => {
         arr.push(
           <Image
             key={6 + i}
-            className="min-w-[29px] min-h-[29px] max-w-[29px] max-h-[29px]"
+            className="xs:min-w-[29px] xs:min-h-[29px] xs:max-w-[29px] xs:max-h-[29px] h-[20px] w-[20px]"
             width={29}
             height={29}
             src={icon_star2}
@@ -124,102 +124,88 @@ const Skills: React.FC = () => {
   return (
     <>
       {" "}
-      <div className="mt-[200px] bg-[#132790] bg-opacity-[50%] max-w-[1515px] w-[95vw] min-h-[784px] max-h-[784px] rounded-[20px] border-[2px] border-[#524FFF] border-opacity-[50%]">
+      <div className="mt-[200px] bg-[#132790] bg-opacity-[50%] max-w-[1515px] w-[95vw] min-h-[784px] max-h-[784px] rounded-[20px] border-[2px] border-[#524FFF] border-opacity-[50%] ">
         <h1
           className={`${days_one.variable} mt-[30px] font-days_one text-white text-[40px] text-center`}
         >
           Skills
         </h1>
-        <p className="text-white text-[18px] text-center ">
-          All skill levels measured with ChatGPT prompts:
+        <p className="px-[5px] text-white text-[12px] xxs:text-[14px] lg:text-[18px] md:text-[14px] text-center ">
+          Measured with ChatGPT prompts:
           <br />
           &quot;Summarize all of X knowledge into 5 levels of skill, from
           beginner to expert&quot;
         </p>
         <div
-          className="skill-tables flex xl:mx-[93px] lg:mx-[63px] md:mx-[33px] mt-[30px] justify-between overflow-auto md:gap-[50px]"
+          className="skill-tables flex xl:mx-[93px] lg:mx-[63px] md:mx-[33px] sm:mx-[20px] mx-[5px] mt-[30px] justify-around overflow-auto md:gap-[50px] sm:gap-[20px]"
           ref={skillTables}
         >
-          <section className="min-w-[396px]">
+          <section className="min-w-[306px]">
             <div className="arrows">
-              <div className="arrows-left"></div>
+              <div className="arrows-left max-w-0"></div>
             </div>
-            <div>
-              <h1
+            <table>
+              <thead
                 className={`${days_one.variable} font-days_one text-white text-[25px] text-left`}
               >
-                Front-end
-              </h1>
-              <div className="flex flex-col relative">
-                <div className="flex border-[3px] border-[#5282FF] rounded-tl-[10px] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                <tr>
+                  <td>Front-end</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="skill-table-row px-[10px] xxs:px[15px] border-[3px] border-[#5282FF] rounded-tl-[10px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     HTML
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("HTML")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[65px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px] border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     CSS
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("CSS")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     JavaScript
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("JavaScript")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     ReactJS
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("ReactJS")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     Tailwind CSS
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("TailwindCSS")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     TypeScript
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("TypeScript")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-            </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
             <div className="arrows" onClick={handleClick}>
               <Image
-                className="arrows-right min-w-[41px] min-h-[41px] max-w-[41px] max-h-[41px] icon-filter-bw"
+                className="arrows-right xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
                 width={41}
                 height={41}
                 src={icon_arrows_right}
@@ -227,82 +213,71 @@ const Skills: React.FC = () => {
               />
             </div>
           </section>
-          <section className="min-w-[396px]">
+          <section className="min-w-[306px]">
             <div className="arrows" onClick={handleClick}>
               <Image
-                className="arrows-left min-w-[41px] min-h-[41px] max-w-[41px] max-h-[41px] icon-filter-bw"
+                className="arrows-left xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
                 width={41}
                 height={41}
                 src={icon_arrows_left}
                 alt="Icon arrows left"
               />
             </div>
-            <div>
-              <h1
+            <table>
+              <thead
                 className={`${days_one.variable} font-days_one text-white text-[25px] text-left`}
               >
-                Back-end
-              </h1>
-              <div className="flex flex-col relative">
-                <div className="flex border-[3px] border-[#5282FF] rounded-tl-[10px] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                <tr>
+                  <td>Back-end</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="skill-table-row px-[10px] xxs:px[15px] border-[3px] border-[#5282FF] rounded-tl-[10px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]  ">
                     NodeJS
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("NodeJS")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[65px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px] border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     Express
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("Express")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     Firebase
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("Firebase")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     MongoDB
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("MongoDB")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     SQL
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("SQL")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-            </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
             <div className="arrows" onClick={handleClick}>
               <Image
-                className="arrows-right min-w-[41px] min-h-[41px] max-w-[41px] max-h-[41px] icon-filter-bw"
+                className="arrows-right xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
                 width={41}
                 height={41}
                 src={icon_arrows_right}
@@ -310,110 +285,94 @@ const Skills: React.FC = () => {
               />
             </div>
           </section>
-          <section className="min-w-[396px]">
+          <section className="min-w-[306px]">
             <div className="arrows" onClick={handleClick}>
               <Image
-                className="arrows-left min-w-[41px] min-h-[41px] max-w-[41px] max-h-[41px] icon-filter-bw"
+                className="arrows-left xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
                 width={41}
                 height={41}
                 src={icon_arrows_left}
                 alt="Icon arrows left"
               />
             </div>
-            <div>
-              <h1
+            <table>
+              <thead
                 className={`${days_one.variable} font-days_one text-white text-[25px] text-left`}
               >
-                Other
-              </h1>
-              <div className="flex flex-col relative">
-                <div className="flex border-[3px] border-[#5282FF] rounded-tl-[10px] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                <tr>
+                  <td>Other</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="skill-table-row px-[10px] xxs:px[15px] border-[3px] border-[#5282FF] rounded-tl-[10px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]  ">
                     Figma
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("Figma")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[65px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px] border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     Java
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("Java")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     C
-                  </div>
-                  <div className="flex gap-[5px]">{renderSkillStars("C")}</div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
+                    {renderSkillStars("C")}
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     C#
-                  </div>
-                  <div className="flex gap-[5px]">{renderSkillStars("C#")}</div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
+                    {renderSkillStars("C#")}
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     C++
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("C++")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     Python
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("Python")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     Git
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("Git")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-              <div className="flex flex-col relative">
-                <div className="flex border-l-[3px] border-r-[3px] border-b-[3px]  border-[#5282FF] p-[15px]">
-                  <div className="text-white text-[20px] font-bold min-w-[193px]">
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
                     ChatGPT
-                  </div>
-                  <div className="flex gap-[5px]">
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("ChatGPT")}
-                  </div>
-                </div>
-                <div className="absolute border-l-[3px] h-[60px] border-[#5282FF] left-[190px]"></div>
-              </div>
-            </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
             <div className="arrows">
-              <div className="arrows-right"></div>
+              <div className="arrows-right max-w-0"></div>
             </div>
           </section>
         </div>

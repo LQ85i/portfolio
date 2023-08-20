@@ -75,7 +75,7 @@ body {
 
 .contact-form-background {
   background: linear-gradient(to bottom,
-  rgba(0, 194, 255, 0.13),
+      rgba(0, 194, 255, 0.13),
       70%,
       rgba(255, 255, 255, 0));
 }
@@ -101,6 +101,7 @@ body {
 .arrows-right {
   margin-left: min(50px, 1vw);
 }
+
 .arrows-left {
   margin-right: min(50px, 1vw);
 }
@@ -109,7 +110,25 @@ body {
   overflow: hidden;
 }
 
-@media only screen and (max-width: 1400px) {
+.skill-table-row {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  border-left: 3px solid #5282FF;
+  border-right: 3px solid #5282FF;
+  border-bottom: 3px solid #5282FF;
+  width: min-content;
+  height: 50px;
+  max-width: 394px;
+}
+
+.skill-table-div {
+  color: white;
+  font-weight: bold;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 1150px) {
   .skill-tables {
     justify-content: start;
     scroll-snap-type: x mandatory;
@@ -120,16 +139,19 @@ body {
     /* Firefox */
     scrollbar-width: none;
   }
+
   .skill-tables::-webkit-scrollbar {
     /* Safari and Chrome */
     display: none;
   }
+
   .skill-tables section {
     scroll-snap-align: center;
     min-width: 100%;
     display: flex;
     justify-content: center;
   }
+
   .skill-tables .arrows {
     display: block;
     width: 100%;

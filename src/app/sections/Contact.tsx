@@ -1,6 +1,7 @@
 import React from "react";
 import { Days_One } from "next/font/google";
 import { DM_Sans } from "next/font/google";
+import axios, { AxiosResponse } from "axios";
 
 const days_one = Days_One({
   weight: "400",
@@ -15,11 +16,29 @@ const dm_sans = DM_Sans({
 });
 
 const Contact: React.FC = () => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const jsonObject = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message")
+    };
+    try {
+      const response: AxiosResponse = await axios.post(
+        "https://portfolio-server15389.fly.dev/send-email",
+        jsonObject
+      );
+      
+      // Handle success
+    } catch (error) {
+      console.log(error);
+      
+      // Handle error
+    }
+  };
 
-const handleSubmit = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-  e.preventDefault();
-    return 
-  }
   return (
     <>
       <div className="mt-[200px] flex flex-col items-center">
@@ -42,6 +61,7 @@ const handleSubmit = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
           <form
             className="flex flex-col items-center text-white text-[25px]"
             action=""
+            onSubmit={handleSubmit}
           >
             <label className="mt-[30px]" htmlFor="name">
               Name <br />
@@ -50,6 +70,7 @@ const handleSubmit = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
                 name="name"
                 type="text"
                 maxLength={50}
+                required
               />
             </label>
             <label className="mt-[30px]" htmlFor="email">
@@ -59,6 +80,7 @@ const handleSubmit = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
                 name="email"
                 type="email"
                 maxLength={50}
+                required
               />
             </label>
             <label className="mt-[30px]" htmlFor="message">
@@ -70,15 +92,14 @@ const handleSubmit = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
                 cols={30}
                 rows={10}
                 maxLength={10000}
+                required
               ></textarea>
             </label>
-            <button
+            <input
               className="w-[170px] h-[50px] mt-[35px] rounded-[10px] border-[#00C2FF] border-[1px] contact-form-send"
               type="submit"
-              onClick={handleSubmit}
-            >
-              Send
-            </button>
+              value="Send"
+            />
           </form>
         </div>
       </div>
