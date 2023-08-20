@@ -48,14 +48,14 @@ const Contact: React.FC = () => {
           Contact
         </h1>
         <p
-          className={`text-white mt-[82px] ${dm_sans.variable} font-dm_sans text-[30px] text-center `}
+          className={`text-white mt-[82px] ${dm_sans.variable} font-dm_sans xs:text-[30px] text-[25px] text-center `}
         >
           I am currently available for work.
         </p>
         <div
           className={`${dm_sans.variable} font-dm_sans flex flex-col items-center mt-[90px] max-w-[950px] w-[95vw] h-[812px] rounded-tl-[50px] rounded-tr-[50px] contact-form-background`}
         >
-          <h1 className={"text-[30px] font-bold mt-[30px]  text-white"}>
+          <h1 className={"xs:text-[30px] text-[25px] font-bold mt-[30px]  text-white"}>
             Send me a message:
           </h1>
           <form

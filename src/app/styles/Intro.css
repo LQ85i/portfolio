@@ -1,0 +1,22 @@
+.profile-pic-background {
+    min-height: 230px;
+    max-height: 230px;
+    min-width: 205px;
+    max-height: 205px;
+    background: linear-gradient(to bottom right,
+        #003069,
+        #000A1D 25%,
+        #000A1D 75%,
+        #003069 100%);
+    border-radius: 20px;
+  }
+  
+  .main-skill-background {
+    background: linear-gradient(to bottom,
+        rgba(48, 72, 159, 0.71),
+        27%,
+        rgba(12, 12, 12, 0),
+        73%,
+        rgba(45, 72, 168, 0.72));
+    border-radius: 10px;
+  }

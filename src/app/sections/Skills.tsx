@@ -20,7 +20,7 @@ const Skills: React.FC = () => {
     CSS: 3.5,
     JavaScript: 4,
     ReactJS: 3,
-    TailwindCSS: 1,
+    TailwindCSS: 1.5,
     TypeScript: 1,
     NodeJS: 2.5,
     Express: 1.5,

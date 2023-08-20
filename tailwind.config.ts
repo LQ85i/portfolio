@@ -7,14 +7,15 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    screens: {
-      'xs': '480px',
-      // => @media (min-width: 480px) { ... }
-      'xxs': '400px',
-      // => @media (min-width: 440px) { ... }
-
-    },
+    
     extend: {
+      screens: {
+        'xs': '480px',
+        // => @media (min-width: 480px) { ... }
+        'xxs': '400px',
+        // => @media (min-width: 440px) { ... }
+  
+      },
       fontFamily: {
         days_one: ['var(--font-days-one)'],
         dm_sans: ['var(--font-dm-sans)'],

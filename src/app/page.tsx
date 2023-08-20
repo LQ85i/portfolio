@@ -6,7 +6,7 @@ import Intro from "./sections/Intro";
 
 export default function Page() {
   return (
-    <main className="flex min-h-[3800px] overflow-x-hidden flex-col items-center p-24">
+    <main className="flex min-h-[3800px] overflow-x-hidden flex-col items-center xs:py-24 py-10">
       <Intro />
       <Projects />
       <Skills />
