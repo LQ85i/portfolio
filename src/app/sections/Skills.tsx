@@ -27,6 +27,7 @@ const Skills: React.FC = () => {
     Firebase: 2,
     MongoDB: 3,
     SQL: 2.5,
+    MySQL: 1.5,
     Figma: 1.5,
     Java: 3.5,
     C: 3.5,
@@ -124,20 +125,14 @@ const Skills: React.FC = () => {
   return (
     <>
       {" "}
-      <div className="mt-[200px] bg-[#132790] bg-opacity-[50%] max-w-[1515px] w-[95vw] min-h-[784px] max-h-[784px] rounded-[20px] border-[2px] border-[#524FFF] border-opacity-[50%] ">
+      <div className="flex flex-col mt-[200px] bg-[#132790] bg-opacity-[50%] max-w-[1515px] w-[95vw] h-min max-h-[784px] rounded-[20px] border-[2px] border-[#524FFF] border-opacity-[50%] ">
         <h1
           className={`${days_one.variable} mt-[30px] font-days_one text-white text-[40px] text-center`}
         >
           Skills
         </h1>
-        <p className="px-[5px] text-white text-[12px] xxs:text-[14px] lg:text-[18px] md:text-[14px] text-center ">
-          Measured with ChatGPT prompts:
-          <br />
-          &quot;Summarize all of X knowledge into 5 levels of skill, from
-          beginner to expert&quot;
-        </p>
         <div
-          className="skill-tables flex xl:mx-[93px] lg:mx-[63px] md:mx-[33px] sm:mx-[20px] mx-[5px] mt-[30px] justify-around overflow-auto md:gap-[50px] sm:gap-[20px]"
+          className="skill-tables flex mx-[5px] mt-[30px] justify-center overflow-auto gap-[20px]"
           ref={skillTables}
         >
           <section className="min-w-[306px]">
@@ -272,6 +267,14 @@ const Skills: React.FC = () => {
                     {renderSkillStars("SQL")}
                   </td>
                 </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
+                    MySQL
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
+                    {renderSkillStars("MySQL")}
+                  </td>
+                </tr>
               </tbody>
             </table>
 
@@ -376,6 +379,12 @@ const Skills: React.FC = () => {
             </div>
           </section>
         </div>
+        <p className="mt-[40px] mb-[20px] px-[5px] text-white text-[12px] xxs:text-[14px] lg:text-[18px] md:text-[14px] text-center ">
+          Measured with ChatGPT prompts:
+          <br />
+          &quot;Summarize all of X knowledge into 5 levels of skill, from
+          beginner to expert&quot;
+        </p>
       </div>
     </>
   );
