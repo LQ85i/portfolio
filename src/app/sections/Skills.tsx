@@ -5,6 +5,7 @@ import icon_star2 from "../assets/images/icon_star2.svg";
 import icon_arrows_right from "../assets/images/icon_arrows_right.svg";
 import icon_arrows_left from "../assets/images/icon_arrows_left.svg";
 import { Days_One } from "next/font/google";
+import "../styles/Skills.css";
 
 const days_one = Days_One({
   weight: "400",
@@ -126,11 +127,11 @@ const Skills: React.FC = () => {
     <>
       {" "}
       <div className="flex flex-col mt-[200px] bg-[#132790] bg-opacity-[50%] max-w-[1515px] w-[95vw] h-min max-h-[784px] rounded-[20px] border-[2px] border-[#524FFF] border-opacity-[50%] ">
-        <h1
+        <h2
           className={`${days_one.variable} mt-[30px] font-days_one text-white text-[40px] text-center`}
         >
           Skills
-        </h1>
+        </h2>
         <div
           className="skill-tables flex mx-[5px] mt-[30px] justify-center overflow-auto gap-[20px]"
           ref={skillTables}

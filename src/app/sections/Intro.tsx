@@ -34,11 +34,11 @@ const Intro: React.FC = () => {
           </p>
         </div>
         <div className="flex flex-col">
-          <h1
+          <h2
             className={`${days_one.variable} font-days_one text-[#7DBCD7] text-[30px] xss:mt-[86px] xs:mt-[56px] mt-[20px] self-center`}
           >
             Main skills:
-          </h1>
+          </h2>
           <div className="text-white text-[30px] flex flex-wrap items-center justify-center lg:gap-[33px] sm:gap-[25px] xs:gap-[20px] xxs:gap-[15px] gap-[10px] sm:mt-[20px] mt-[10px]">
             <div className="main-skill-background px-[29px] py-[6px]">HTML</div>
             <div className="main-skill-background px-[29px] py-[6px]">CSS</div>

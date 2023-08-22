@@ -40,23 +40,21 @@ const Contact: React.FC = () => {
       );
       // Handle success
       setEmailStatus("success");
-      console.log("case 1:");
       console.log(response);
     } catch (error) {
       // Handle error
       setEmailStatus("error");
-      console.log("case 2:");
       console.log(error);
     }
   };
   return (
     <>
       <div className="mt-[200px] flex flex-col items-center">
-        <h1
+        <h2
           className={`${days_one.variable} font-days_one text-white text-[40px] text-center`}
         >
           Contact
-        </h1>
+        </h2>
         <p
           className={`text-white mt-[82px] ${dm_sans.variable} font-dm_sans xs:text-[30px] text-[25px] text-center `}
         >
@@ -65,13 +63,13 @@ const Contact: React.FC = () => {
         <div
           className={`${dm_sans.variable} font-dm_sans flex flex-col items-center mt-[90px] max-w-[950px] w-[95vw] rounded-tl-[50px] rounded-tr-[50px] contact-form-background`}
         >
-          <h1
+          <h2
             className={
               "xs:text-[30px] text-[25px] font-bold mt-[30px]  text-white"
             }
           >
             Send me a message:
-          </h1>
+          </h2>
           <form
             className="flex flex-col items-center text-white text-[25px]"
             action=""
