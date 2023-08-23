@@ -30,7 +30,7 @@ const Intro: React.FC = () => {
             <br />
             I&apos;m Jaakko,
             <br />
-            <br />a Front-end Developer and this is my portfolio website
+            <br />a Full Stack Developer and this is my portfolio website
           </p>
         </div>
         <div className="flex flex-col">
@@ -51,8 +51,7 @@ const Intro: React.FC = () => {
           </div>
         </div>
         <p className="text-white mt-[120px] text-[30px] text-center ">
-          Previously automation engineering student, learned Front-end through
-          The Odin Project and continuing the course for more Back-end.
+        Previously automation engineering student, learned web development through The Odin Project. 
         </p>
       </div>
     </>

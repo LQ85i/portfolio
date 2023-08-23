@@ -1,11 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import img_picture_tag from "../assets/images/project-picture-tag.png";
 import img_memory_game from "../assets/images/project-memory-game.png";
+import img_shopping_cart from "../assets/images/project-shopping-cart.png";
+import icon_arrow_left from "../assets/images/icon_arrow_left.svg";
+import icon_arrow_right from "../assets/images/icon_arrow_right.svg";
+import icon_circle from "../assets/images/icon_circle.svg";
+import icon_circle_filled from "../assets/images/icon_circle_filled.svg";
 import { Days_One } from "next/font/google";
 import { DM_Sans } from "next/font/google";
 import "../styles/Projects.css";
-import ScrollContainer from "react-indiana-drag-scroll";
+import { useSpring, animated } from "react-spring";
 
 const days_one = Days_One({
   weight: "400",
@@ -19,233 +24,210 @@ const dm_sans = DM_Sans({
   variable: "--font-dm-sans",
 });
 
-const projectData = [
-  {
-    title: "Memory Card Game",
-    imgSrc: img_memory_game,
-    gitSrc: "",
-  },
-  {
-    title: "Picture Tag: Rats",
-    imgSrc: img_picture_tag,
-    gitSrc: "",
-  },
-  {
-    title: "Memory Card Game",
-    imgSrc: img_memory_game,
-    gitSrc: "",
-  },
-  {
-    title: "Memory Card Game",
-    imgSrc: img_memory_game,
-    gitSrc: "",
-  },
-  {
-    title: "Memory Card Game",
-    imgSrc: img_memory_game,
-    gitSrc: "",
-  },
-  {
-    title: "Memory Card Game",
-    imgSrc: img_memory_game,
-    gitSrc: "",
-  },
-  {
-    title: "Memory Card Game",
-    imgSrc: img_memory_game,
-    gitSrc: "",
-  },
-];
-
 const Projects: React.FC = () => {
+  const projectData = [
+    {
+      title: "Picture Tag: Rats",
+      description: (
+        <div>
+          Includes:
+          <ul className="list-disc ml-[20px]">
+            <li>in-app instructions</li>
+            <li>responsive design with mobile support</li>
+            <li>online leaderboard</li>
+            <li>full game-loop with randomized characters</li>
+            <li>back-end data validation</li>
+            <li>animations</li>
+            <li>built-in zoom and drag for navigating artwork</li>
+          </ul>
+        </div>
+      ),
+      imgSrc: img_picture_tag,
+      gitSrc: "https://github.com/LQ85i/firebase-project-2",
+      deploySrc: "https://lq85i.github.io/firebase-project-2",
+    },
+    {
+      title: "Shopping Cart Demo",
+      description: <div>test</div>,
+      imgSrc: img_shopping_cart,
+      gitSrc: "https://github.com/LQ85i/react-project-7",
+      deploySrc: "https://lq85i.github.io/react-project-7/",
+    },
+    {
+      title: "Memory Card Game",
+      description: <div></div>,
+      imgSrc: img_memory_game,
+      gitSrc: "https://github.com/LQ85i/react-project-4",
+      deploySrc: "https://lq85i.github.io/react-project-4/",
+    },
+    {
+      title: "Memory Card Game",
+      description: <div></div>,
+      imgSrc: img_memory_game,
+      gitSrc: "",
+      deploySrc: "",
+    },
+    {
+      title: "Memory Card Game",
+      description: <div></div>,
+      imgSrc: img_memory_game,
+      gitSrc: "",
+      deploySrc: "",
+    },
+  ];
+
+  const [activeSlide, setActiveSlide] = useState(1);
+  const [holdSlide, setHoldSlide] = useState(-1);
+  const [slideIsFading, setSlideIsFading] = useState(false);
+
   const projectCount = projectData.length;
-  const initializeArray = () => {
-    return Array(projectCount).fill(0);
-  };
-  const initializeProjectIndexes = () => {
-    // initialize projectIndexes as [0,1,2,...]
-    // with carousel it can change like this [1,2,...,0]
-    let arr = Array(projectCount).fill(0);
-    for (let i = 0; i < projectCount; i++) {
-      arr[i] = i;
+
+  const fadeProps = useSpring({
+    opacity: slideIsFading ? 0 : 1,
+    config: { duration: 200 },
+    onRest: () => {
+      // Toggle the animation direction when it's finished
+      if(holdSlide != -1) {
+        setSlideIsFading(!slideIsFading);
+      }
     }
-    return arr 
-  }
-  const [styleModifiers, setStyleModifiers] = useState(initializeArray);
-  const [projectIndexes, setProjectIndexes] = useState(initializeProjectIndexes);
-  const [centerCardIndex, setCenterCardIndex] = useState(0);
-
-  const cardContainerRef = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLElement>(null);
-
-
+  });
 
   useEffect(() => {
-    let newIndexes, newIndex, oldIndex;
-    if (scrollRef.current) {
-
-      if (centerCardIndex - 1 <= 0) {
-        //move rightmost card to left end
-        newIndexes = [...projectIndexes];
-        newIndex = 0;
-        oldIndex = projectCount - 1;
-        scrollRef.current.scrollLeft += 450;
-      } else if (centerCardIndex + 1 >= projectCount - 1) {
-        //move leftmost card to right end
-        newIndexes = [...projectIndexes];
-        newIndex = projectCount - 1;
-        oldIndex = 0;
-        scrollRef.current.scrollLeft -= 450;
-      } else {
-        return;
-      }
-
-      newIndexes.splice(newIndex, 0, newIndexes.splice(oldIndex, 1)[0]);
-      setProjectIndexes(newIndexes);
-      console.log(newIndexes);
+    // this avoids bug where slideIsFading gets stuck on true
+    if(slideIsFading) {
+      const timeoutId = setTimeout(() => {
+        setSlideIsFading(false);
+      }, 400);
+      return () => clearTimeout(timeoutId);
     }
+  }, [slideIsFading]);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [centerCardIndex]);
-
-  const getStyleModifier = (index: number) => {
-    if (cardContainerRef.current && scrollRef.current) {
-      const rect =
-        cardContainerRef.current.children[index].getBoundingClientRect();
-      const centerX =
-        -scrollRef.current.clientWidth / 2 +
-        rect.right -
-        (rect.right - rect.left) / 2;
-
-      const maxDistance = scrollRef.current.clientWidth / 2;
-
-      if (Math.abs(centerX) <= maxDistance) {
-        const modifier = 1 - Math.abs(centerX / maxDistance);
-        return modifier;
-      }
+  useEffect(() => {
+    // this keeps previous slide in view until fade out is complete
+    if (holdSlide !== -1) {
+      const timeoutId = setTimeout(() => {
+        setHoldSlide(-1);
+      }, 200);
+      return () => clearTimeout(timeoutId);
     }
-    return 0;
+  }, [holdSlide]);
+
+  const getSlide = () => {
+    let slideIndex;
+    if (holdSlide != -1) {
+      slideIndex = holdSlide - 1;
+    } else {
+      slideIndex = activeSlide - 1;
+    }
+    return (
+      <animated.div
+        className="slide-container flex justify-center h-[90%]"
+        style={fadeProps}
+      >
+        <div>
+          <Image
+            className="max-w-[362px] min-w-[362px] max-h-[493px] min-h-[493px] ml-auto mr-0"
+            width={362}
+            height={493}
+            src={projectData[slideIndex].imgSrc}
+            alt="Picture of the author"
+          />
+        </div>
+        <div className="ml-[50px] flex flex-col">
+          <h2
+            className={`${days_one.variable} font-days_one md:text-[25px] text-[14px] sm:mt-0 mt-[20px]`}
+          >
+            Picture Tag: Rats
+          </h2>
+          <div className="md:text-[20px] sm:text-[18px] xs:text-[16px] text-[14px] mt-[30px] mb-[30px]">
+            {projectData[slideIndex].description}
+          </div>
+          <div className="mt-auto">
+            <div className="flex gap-x-[25px] mb-2px h-[52px]">
+              <a href={projectData[slideIndex].deploySrc}>
+                <button
+                  className={`${dm_sans.variable} font-dm_sans w-max text-[16px] h-[50px] px-[20px]  rounded-[10px] border-[#00C2FF] border-[1px] project-button`}
+                >
+                  Deployed here
+                </button>
+              </a>
+              <a href={projectData[slideIndex].gitSrc}>
+                <button
+                  className={`${dm_sans.variable} font-dm_sans w-max text-[16px] h-[50px] px-[20px]  rounded-[10px] border-[#00C2FF] border-[1px] project-button`}
+                >
+                  GitHub Repository
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </animated.div>
+    );
   };
 
-  const getCenterCardIndex = () => {
-    let minDistance = undefined;
-    let index = undefined;
-    for (let i = 0; i < projectCount; i++) {
-      if (cardContainerRef.current && scrollRef.current) {
-        const rect =
-          cardContainerRef.current.children[i].getBoundingClientRect();
-        const deltaXFromViewCenter =
-          -scrollRef.current.clientWidth / 2 +
-          rect.right -
-          (rect.right - rect.left) / 2;
-
-        if (minDistance === undefined) {
-          minDistance = Math.abs(deltaXFromViewCenter);
-          index = i;
-        } else if (Math.abs(deltaXFromViewCenter) < minDistance) {
-          minDistance = Math.abs(deltaXFromViewCenter);
-          index = i;
-        }
-      }
-    }
-    if (index != undefined) {
-      
-      return index;
-    }
-  };
-
-  const handleScroll = () => {
-    if (scrollRef.current && cardContainerRef.current) {
-      const maxScrollLeft =
-        scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
-      const scrollX = scrollRef.current.scrollLeft;
-      const percentage = scrollX / maxScrollLeft;
-
-      //handle swapping of edge cards here
-      const index = getCenterCardIndex();
-      if (index != undefined) {
-        setCenterCardIndex(index);
-      }
-
-      let modifiers = Array(projectCount).fill(0);
-      for (let i = 0; i < projectCount; i++) {
-        modifiers[projectIndexes[i]] = getStyleModifier(i);
-      }
-      setStyleModifiers(modifiers);
-    }
-    return;
-  };
-
-  const getProjectCards = () => {
-    let arr: React.ReactNode[] = [];
-
+  const getSlideDots = () => {
+    let arr = [];
     for (let i = 0; i < projectCount; i++) {
       arr.push(
-        <section
-          className="flex justify-center gap-[30px] max-w-[300px]"
-          style={{
-            opacity: 0.1 + 0.9 * styleModifiers[projectIndexes[i]],
-          }}
+        <div
+          className="flex justify-center hover:cursor-pointer change-slide-circle items-center min-w-[50px] min-h-[30px] max-w-[50px] max-h-[30px]"
           key={i}
+          data-key={i}
+          onClick={handleClick}
         >
-          <div
-            className="flex  flex-col items-center carousel-card pt-[34px]"
-            style={{
-              marginTop: 107 - 107 * styleModifiers[projectIndexes[i]] + "px",
-              maxWidth: 298 + 196 * styleModifiers[projectIndexes[i]] + "px",
-              maxHeight: 470 + 230 * styleModifiers[projectIndexes[i]] + "px",
-              minWidth: 298 + 196 * styleModifiers[projectIndexes[i]] + "px",
-              minHeight: 470 + 230 * styleModifiers[projectIndexes[i]] + "px",
-            }}
-          >
-            <h2
-              className={`${days_one.variable} font-days_one text-white text-center min-w-[384px]`}
-              style={{
-                fontSize: 20 + 10 * styleModifiers[projectIndexes[i]] + "px",
-              }}
-            >
-              {projectData[projectIndexes[i]].title}
-            </h2>
-            <Image
-              className="mt-[22px]"
-              width={420}
-              height={568}
-              src={projectData[projectIndexes[i]].imgSrc}
-              alt="Image of a project"
-              style={{
-                minWidth: 225 + 165 * styleModifiers[projectIndexes[i]] + "px",
-                minHeight: 340 + 188 * styleModifiers[projectIndexes[i]] + "px",
-              }}
-            />
-            <button
-              className={`${dm_sans.variable} font-dm_sans min-w-[218px] text-white text-[25px] rounded-[5px] min-h-[43px] max-w-[218px] max-h-[43px] mt-[27px] carousel-button`}
-              style={{
-                opacity: 0 + 1 * styleModifiers[projectIndexes[i]],
-              }}
-            >
-              Check it out!
-            </button>
-          </div>
-        </section>
+          <Image
+            className="max-w-[20px] max-h-[20px] min-h-[20px] min-w-[20px]"
+            width={48}
+            height={48}
+            src={i + 1 === activeSlide ? icon_circle_filled : icon_circle}
+            alt="Icon circle"
+          />
+        </div>
       );
     }
+    return arr;
+  };
 
-    return (
-      <div
-        className="flex justify-center scroll-container h-[700px] overflow-hidden gap-[153px] mt-[22px] px-[50px]"
-        style={{
-          width: projectCount * 400 + "px",
-        }}
-        ref={cardContainerRef}
-      >
-        {arr}
-      </div>
-    );
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    
+    const element = e.currentTarget;
+    if (element.classList.contains("change-slide-arrow-left")) {
+      let index;
+      if (activeSlide === 1) {
+        index = projectCount;
+      } else {
+        index = activeSlide - 1;
+      }
+      setActiveSlide(index);
+      setSlideIsFading(true);
+      setHoldSlide(activeSlide);
+    }
+    else if (element.classList.contains("change-slide-arrow-right")) {
+      let index;
+      if (activeSlide === projectCount) {
+        index = 1;
+      } else {
+        index = activeSlide + 1;
+      }
+      setActiveSlide(index);
+      setSlideIsFading(true);
+      setHoldSlide(activeSlide);
+    }
+    else if (element.classList.contains("change-slide-circle")) {
+      const key = element.getAttribute("data-key");
+      if (key != null) {
+        const index = parseInt(key) + 1;
+        setActiveSlide(index);
+        setSlideIsFading(true);
+        setHoldSlide(activeSlide);
+      }
+    }
   };
 
   return (
     <>
-      <div className="mt-[200px] w-[100vw]">
+      <div className="mt-[200px] max-w-[1515px] w-[100vw] flex flex-col items-center text-white">
         <h2
           className={`${days_one.variable} font-days_one text-white text-[40px] text-center`}
         >
@@ -256,16 +238,39 @@ const Projects: React.FC = () => {
         >
           in The Odin Project
         </h2>
-        <ScrollContainer
-          vertical={false}
-          horizontal={true}
-          hideScrollbars={true}
-          innerRef={scrollRef}
-          nativeMobileScroll={true}
-          onScroll={handleScroll}
-        >
-          {getProjectCards()}
-        </ScrollContainer>
+
+        <div className="max-w-[1514px] w-[95vw] h-max mt-[50px] bg-[#0085FF] bg-opacity-[22%] rounded-[10px] border-[1px] border-[#0085FF] pt-[50px] pb-[20px]">
+          <div className="flex justify-between ">
+            <div
+              className="change-slide-arrow-left hover:cursor-pointer flex items-center justify-start min-w-[48px] w-[100px]"
+              onClick={handleClick}
+            >
+              <Image
+                className="icon-filter-bw"
+                width={48}
+                height={48}
+                src={icon_arrow_left}
+                alt="Icon arrow left"
+              />
+            </div>
+            {getSlide()}
+            <div
+              className="change-slide-arrow-right hover:cursor-pointer flex items-center justify-end min-w-[48px] w-[100px]"
+              onClick={handleClick}
+            >
+              <Image
+                className="icon-filter-bw"
+                width={48}
+                height={48}
+                src={icon_arrow_right}
+                alt="Icon arrow right"
+              />
+            </div>
+          </div>
+          <div className="flex justify-center mt-[30px]">
+            <div className="flex ">{getSlideDots()}</div>
+          </div>
+        </div>
       </div>
     </>
   );

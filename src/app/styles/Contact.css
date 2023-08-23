@@ -23,6 +23,14 @@
 
 .contact-form-send {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to bottom,
+  rgba(0, 127, 198, 0.83),
+  10%,
+  rgba(0, 91, 142, 0),
+  50%,
+  rgba(0, 91, 142, 0),
+  90%,
+  rgba(0, 127, 198, 0.75));
 }
 
 .contact-form-send:active {
