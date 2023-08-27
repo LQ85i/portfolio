@@ -1,0 +1,9 @@
+.footer-content {
+    position: relative;
+    border-radius: 16px;
+    border: 1px solid #00c3ff6c;
+    padding: 10px 20px;
+    /* just to show box-shadow still works fine */
+    box-shadow: inset 0 0 5px 1px #00c3ff3a;
+    line-height: 1.5em;
+}

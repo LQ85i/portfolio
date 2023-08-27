@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
             onSubmit={handleSubmit}
           >
             <label className="mt-[30px]" htmlFor="name">
-              Your name <br />
+              Name <br />
               <input
                 className="bg-[#000000] bg-opacity-[8%] rounded-[5px] border-[1px] border-[#00C2FF] max-w-[700px] w-[70vw] min-w-[200px]"
                 name="name"
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
               />
             </label>
             <label className="mt-[30px]" htmlFor="email">
-              Your email <br />
+              Email <br />
               <input
                 className="bg-[#000000] bg-opacity-[8%] rounded-[5px] border-[1px] border-[#00C2FF] max-w-[700px] w-[70vw] min-w-[200px]"
                 name="email"
@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
                   (emailStatus === "error" ? "" : " hidden")
                 }
               >
-                Error sending message. <br /> Please send me email at
+                Server error. <br /> Please send me email at
                 LQ85i.dev@gmail.com
               </p>
             </div>

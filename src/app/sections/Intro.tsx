@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import profilepic from "../assets/images/profilepic-july.png";
 import { Days_One } from "next/font/google";
-import "../styles/Intro.css"
+import "../styles/Intro.css";
 
 const days_one = Days_One({
   weight: "400",
@@ -15,7 +15,7 @@ const Intro: React.FC = () => {
     <>
       <div className="max-w-[823px] w-[95vw]">
         <div className="flex xs:flex-nowrap xs:justify-left flex-wrap">
-          <div className="max-w-[199px] xs:mx-0 mx-auto max-h-[227px] profile-pic-background flex items-center justify-center">
+          <div className="min-w-[205px] min-h-[230px] max-w-[205px] max-h-[230px] rounded-[20px] xs:mx-0 mx-auto profile-pic-background flex items-center justify-center">
             <Image
               className="rounded-[10px] max-h-[209px] w-[90%]"
               height={209}
@@ -24,14 +24,16 @@ const Intro: React.FC = () => {
               alt="Picture of the author"
             />
           </div>
-          <p className="text-white xs:mt-0 mt-5 ml-[3vw] text-[25px] max-w-[438px]">
-            Hi!
-            <br />
-            <br />
-            I&apos;m Jaakko,
-            <br />
-            <br />a Full Stack Developer and this is my portfolio website
-          </p>
+          <div className="xs:mx-auto ml-[3vw] xs:mt-0 mt-5 rounded-[20px] profile-text-background max-w-[438px] flex items-center justify-center px-[10px] py-[10px]">
+            <p className="text-white p-[10px] rounded-[10px] bg-[#000A1D] xs:text-left text-center text-[25px] leading-tight">
+              Hi!
+              <br />
+              <br />
+              I&apos;m Jaakko,
+              <br />
+              <br /> a Full Stack Developer and this is my portfolio website.
+            </p>
+          </div>
         </div>
         <div className="flex flex-col">
           <h2
@@ -39,7 +41,7 @@ const Intro: React.FC = () => {
           >
             Main skills:
           </h2>
-          <div className="text-white text-[30px] flex flex-wrap items-center justify-center lg:gap-[33px] sm:gap-[25px] xs:gap-[20px] xxs:gap-[15px] gap-[10px] sm:mt-[20px] mt-[10px]">
+          <div className="text-white text-[30px] flex flex-wrap justify-center lg:gap-[33px] sm:gap-[25px] xs:gap-[20px] xxs:gap-[15px] gap-[10px] sm:mt-[20px] mt-[10px]">
             <div className="main-skill-background px-[29px] py-[6px]">HTML</div>
             <div className="main-skill-background px-[29px] py-[6px]">CSS</div>
             <div className="main-skill-background px-[29px] py-[6px]">
@@ -48,11 +50,23 @@ const Intro: React.FC = () => {
             <div className="main-skill-background px-[29px] py-[6px]">
               ReactJS
             </div>
+            <div className="main-skill-background px-[29px] py-[6px]">
+              NodeJS
+            </div>
           </div>
         </div>
-        <p className="text-white mt-[120px] text-[30px] text-center ">
-        Previously automation engineering student, learned web development through The Odin Project. 
-        </p>
+        <div className="xs:mx-auto ml-[3vw] rounded-[20px] mt-[60px]  profile-text-background flex items-center justify-center px-[10px] py-[10px]">
+          <p className="text-white p-[10px] rounded-[10px] bg-[#000A1D] xs:text-[20px] sm:text-[24px] text-[18px] text-center">
+            Previously automation engineering student, learned web development
+            through The Odin Project. <br />
+            <br />
+            I don&apos;t have professional experience yet, but I have a strong foundation in problem solving and learning new skills.
+            <br />
+            <br />
+            I&apos;m more front-end focused but can handle the basics of back-end.
+            I have passion for explorative, yet functional design.
+          </p>
+        </div>
       </div>
     </>
   );

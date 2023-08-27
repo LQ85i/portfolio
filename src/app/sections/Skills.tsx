@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import icon_star1 from "../assets/images/icon_star1.svg";
 import icon_star2 from "../assets/images/icon_star2.svg";
-import icon_arrows_right from "../assets/images/icon_arrows_right.svg";
-import icon_arrows_left from "../assets/images/icon_arrows_left.svg";
+import icon_arrow_left from "../assets/images/icon_arrow_left.svg";
+import icon_arrow_right from "../assets/images/icon_arrow_right.svg";
+
 import { Days_One } from "next/font/google";
 import "../styles/Skills.css";
 
@@ -99,8 +100,8 @@ const Skills: React.FC = () => {
   };
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
-    if (e.currentTarget.className === "arrows") {
-      if (e.currentTarget.children[0].classList.contains("arrows-right")) {
+    if (e.currentTarget.classList.contains("arrow")) {
+      if (e.currentTarget.children[0].classList.contains("arrow-right")) {
         if (skillTables.current && skillTables.current.parentNode) {
           const parent = skillTables.current.parentNode as HTMLElement;
           skillTables.current.scrollTo({
@@ -109,9 +110,7 @@ const Skills: React.FC = () => {
             behavior: "smooth",
           });
         }
-      } else if (
-        e.currentTarget.children[0].classList.contains("arrows-left")
-      ) {
+      } else if (e.currentTarget.children[0].classList.contains("arrow-left")) {
         if (skillTables.current && skillTables.current.parentNode) {
           const parent = skillTables.current.parentNode as HTMLElement;
           skillTables.current.scrollTo({
@@ -136,11 +135,11 @@ const Skills: React.FC = () => {
           className="skill-tables flex mx-[5px] mt-[30px] justify-center overflow-auto gap-[20px]"
           ref={skillTables}
         >
-          <section className="min-w-[306px]">
-            <div className="arrows">
-              <div className="arrows-left max-w-0"></div>
+          <section className="min-w-[306px] flex ">
+            <div className="arrow min-w-[35px]  max-w-[100px]">
+              <div className="arrow-left max-w-0"></div>
             </div>
-            <table>
+            <table className="justify-center">
               <thead
                 className={`${days_one.variable} font-days_one text-white text-[25px] text-left`}
               >
@@ -199,24 +198,30 @@ const Skills: React.FC = () => {
                 </tr>
               </tbody>
             </table>
-            <div className="arrows" onClick={handleClick}>
+            <div
+              className="arrow items-center min-w-[35px] max-w-[100px] hover:cursor-pointer"
+              onClick={handleClick}
+            >
               <Image
-                className="arrows-right xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
+                className="arrow-right xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
                 width={41}
                 height={41}
-                src={icon_arrows_right}
-                alt="Icon arrows right"
+                src={icon_arrow_right}
+                alt="Icon arrow right"
               />
             </div>
           </section>
           <section className="min-w-[306px]">
-            <div className="arrows" onClick={handleClick}>
+            <div
+              className="arrow items-center min-w-[35px] max-w-[100px] hover:cursor-pointer"
+              onClick={handleClick}
+            >
               <Image
-                className="arrows-left xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
+                className="arrow-left xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
                 width={41}
                 height={41}
-                src={icon_arrows_left}
-                alt="Icon arrows left"
+                src={icon_arrow_left}
+                alt="Icon arrow left"
               />
             </div>
             <table>
@@ -279,24 +284,30 @@ const Skills: React.FC = () => {
               </tbody>
             </table>
 
-            <div className="arrows" onClick={handleClick}>
+            <div
+              className="arrow items-center min-w-[35px] max-w-[100px] hover:cursor-pointer"
+              onClick={handleClick}
+            >
               <Image
-                className="arrows-right xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
+                className="arrow-right xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
                 width={41}
                 height={41}
-                src={icon_arrows_right}
-                alt="Icon arrows right"
+                src={icon_arrow_right}
+                alt="Icon arrow right"
               />
             </div>
           </section>
           <section className="min-w-[306px]">
-            <div className="arrows" onClick={handleClick}>
+            <div
+              className="arrow items-center min-w-[35px] max-w-[100px] hover:cursor-pointer"
+              onClick={handleClick}
+            >
               <Image
-                className="arrows-left xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
+                className="arrow-left xxs:min-w-[41px] xxs:min-h-[41px] xxs:max-w-[41px] xxs:max-h-[41px] min-w-[25px] min-h-[25px] icon-filter-bw"
                 width={41}
                 height={41}
-                src={icon_arrows_left}
-                alt="Icon arrows left"
+                src={icon_arrow_left}
+                alt="Icon arrow left"
               />
             </div>
             <table>
@@ -375,12 +386,12 @@ const Skills: React.FC = () => {
               </tbody>
             </table>
 
-            <div className="arrows">
-              <div className="arrows-right max-w-0"></div>
+            <div className="arrow min-w-[35px] max-w-[100px]">
+              <div className="arrow-right max-w-0"></div>
             </div>
           </section>
         </div>
-        <p className="mt-[40px] mb-[20px] px-[5px] text-white text-[12px] xxs:text-[14px] lg:text-[18px] md:text-[14px] text-center ">
+        <p className="mt-[40px] mb-[20px] px-[10px] text-white text-[12px] xxs:text-[14px] lg:text-[18px] md:text-[14px] text-center ">
           Measured with ChatGPT prompts:
           <br />
           &quot;Summarize all of X knowledge into 5 levels of skill, from

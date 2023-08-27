@@ -1,14 +1,17 @@
 .profile-pic-background {
-    min-height: 230px;
-    max-height: 230px;
-    min-width: 205px;
-    max-height: 205px;
     background: linear-gradient(to bottom right,
         #003069,
         #000A1D 25%,
         #000A1D 75%,
         #003069 100%);
-    border-radius: 20px;
+  }
+
+  .profile-text-background {
+    background: linear-gradient(to bottom right,
+        #003069,
+        #000A1D 15%,
+        #000A1D 85%,
+        #003069 100%);
   }
   
   .main-skill-background {

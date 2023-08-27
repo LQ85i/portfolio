@@ -1,68 +1,51 @@
 
-.arrows {
-    display: none;
-    margin-top: -100px;
-  }
-  
-  .arrows-right {
-    margin-left: min(50px, 1vw);
-  }
-  
-  .arrows-left {
-    margin-right: min(50px, 1vw);
-  }
-  
+
+.arrow {
+  display: none;
+}
+
+
+.skill-table-row {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  border-left: 3px solid #5282FF;
+  border-right: 3px solid #5282FF;
+  border-bottom: 3px solid #5282FF;
+  width: min-content;
+  height: 50px;
+}
+
+.skill-table-div {
+  color: white;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1200px) {
   .skill-tables {
-    overflow: hidden;
+    justify-content: start;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    overflow-x: auto;
+    /* Internet Explorer 10+ */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
   }
-  
-  .skill-table-row {
+
+  .skill-tables::-webkit-scrollbar {
+    /* Safari and Chrome */
+    display: none;
+  }
+
+  .skill-tables section {
+    scroll-snap-align: center;
+    min-width: 100%;
     display: flex;
-    text-align: left;
-    align-items: center;
-    border-left: 3px solid #5282FF;
-    border-right: 3px solid #5282FF;
-    border-bottom: 3px solid #5282FF;
-    width: min-content;
-    height: 50px;
-    max-width: 394px;
+    justify-content: space-between;
   }
-  
-  .skill-table-div {
-    color: white;
-    font-weight: bold;
-    margin-right: auto;
+
+  .skill-tables .arrow {
+    display: flex;
   }
-  
-  @media only screen and (max-width: 1200px) {
-    .skill-tables {
-      justify-content: start;
-      scroll-snap-type: x mandatory;
-      scroll-snap-stop: always;
-      overflow-x: auto;
-      /* Internet Explorer 10+ */
-      -ms-overflow-style: none;
-      /* Firefox */
-      scrollbar-width: none;
-    }
-  
-    .skill-tables::-webkit-scrollbar {
-      /* Safari and Chrome */
-      display: none;
-    }
-  
-    .skill-tables section {
-      scroll-snap-align: center;
-      min-width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-  
-    .skill-tables .arrows {
-      display: block;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
+}
