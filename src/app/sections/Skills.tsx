@@ -122,9 +122,11 @@ const Skills: React.FC = () => {
       }
     }
   };
+
+
+
   return (
     <>
-      {" "}
       <div className="flex flex-col mt-[200px] bg-[#132790] bg-opacity-[50%] max-w-[1515px] w-[95vw] h-min max-h-[784px] rounded-[20px] border-[2px] border-[#524FFF] border-opacity-[50%] ">
         <h2
           className={`${days_one.variable} mt-[30px] font-days_one text-white text-[40px] text-center`}
@@ -135,11 +137,11 @@ const Skills: React.FC = () => {
           className="skill-tables flex mx-[5px] mt-[30px] justify-center overflow-auto gap-[20px]"
           ref={skillTables}
         >
-          <section className="min-w-[306px] flex ">
+          <section className="min-w-[306px]">
             <div className="arrow min-w-[35px]  max-w-[100px]">
               <div className="arrow-left max-w-0"></div>
             </div>
-            <table className="justify-center">
+            <table>
               <thead
                 className={`${days_one.variable} font-days_one text-white text-[25px] text-left`}
               >

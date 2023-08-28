@@ -128,6 +128,9 @@ const Projects: React.FC = () => {
   const [holdSlide, setHoldSlide] = useState(-1);
   const [slideIsFading, setSlideIsFading] = useState(false);
 
+  const [touchStartX, setTouchStartX] = useState(Number);
+  const [touchStartY, setTouchStartY] = useState(Number);
+
   const projectCount = projectData.length;
 
   const fadeProps = useSpring({
@@ -176,7 +179,7 @@ const Projects: React.FC = () => {
       >
         <div className="min-w-[40%] md:w-auto max-w-[362px] mx-auto min-h-[350px] max-h-[350px] md:min-h-[493px] md:max-h-[493px] flex md:items-center">
           <Image
-            className="h-full w-auto max-w-[362px] mx-auto md:h-auto md:w-full md:max-h-[493px] md:my-auto"
+            className="h-full w-auto md:max-w-[362px] mx-auto md:h-auto md:w-full md:max-h-[493px] md:my-auto"
             width={362}
             height={493}
             src={projectData[slideIndex].imgSrc}
@@ -189,7 +192,7 @@ const Projects: React.FC = () => {
           >
             {projectData[slideIndex].title}
           </h2>
-          <div className="min-h-[300px] md:text-[22px] sm:text-[20px] xs:text-[18px] text-[16px] md:mt-[30px] mt-[20px] mb-[30px]">
+          <div className="min-h-[300px] md:text-[22px] sm:text-[20px] xs:text-[18px] text-[16px] md:mt-[30px] mt-[20px] mb-[30px] xxs:ml-[5%] md:ml-0">
             {projectData[slideIndex].description}
           </div>
           <div className="mt-auto">
@@ -245,25 +248,9 @@ const Projects: React.FC = () => {
     }
     const element = e.currentTarget;
     if (element.classList.contains("change-slide-arrow-left")) {
-      let index;
-      if (activeSlide === 1) {
-        index = projectCount;
-      } else {
-        index = activeSlide - 1;
-      }
-      setActiveSlide(index);
-      setSlideIsFading(true);
-      setHoldSlide(activeSlide);
+      slideLeft();
     } else if (element.classList.contains("change-slide-arrow-right")) {
-      let index;
-      if (activeSlide === projectCount) {
-        index = 1;
-      } else {
-        index = activeSlide + 1;
-      }
-      setActiveSlide(index);
-      setSlideIsFading(true);
-      setHoldSlide(activeSlide);
+      slideRight();
     } else if (element.classList.contains("change-slide-circle")) {
       const key = element.getAttribute("data-key");
       if (key != null) {
@@ -274,6 +261,54 @@ const Projects: React.FC = () => {
           setHoldSlide(activeSlide);
         }
       }
+    }
+  };
+
+  const slideLeft = () => {
+    let index;
+    if (activeSlide === 1) {
+      index = projectCount;
+    } else {
+      index = activeSlide - 1;
+    }
+    setActiveSlide(index);
+    setSlideIsFading(true);
+    setHoldSlide(activeSlide);
+  };
+
+  const slideRight = () => {
+    let index;
+    if (activeSlide === projectCount) {
+      index = 1;
+    } else {
+      index = activeSlide + 1;
+    }
+    setActiveSlide(index);
+    setSlideIsFading(true);
+    setHoldSlide(activeSlide);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchStartX(e.touches[0].clientX);
+    setTouchStartY(e.touches[0].clientY);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+
+    const swipeDistanceX = touchEndX - touchStartX;
+    const swipeDistanceY = touchEndY - touchStartY;
+    const swipeThreshold = 50;
+
+    if(Math.abs(swipeDistanceY) > swipeThreshold) {
+      // Prevents slide changes on vertical swiping
+      return;
+    }
+    if (swipeDistanceX > swipeThreshold) {
+      slideRight();
+    } else if (swipeDistanceX < -swipeThreshold) {
+      slideLeft();
     }
   };
 
@@ -291,7 +326,11 @@ const Projects: React.FC = () => {
           in The Odin Project
         </h2>
 
-        <div className="max-w-[1514px] w-[95vw] h-max mt-[50px] bg-[#0085FF] bg-opacity-[22%] rounded-[10px] border-[1px] border-[#0085FF] pt-[50px] pb-[20px]">
+        <div
+          className="max-w-[1514px] w-[95vw] h-max mt-[50px] bg-[#0085FF] bg-opacity-[22%] rounded-[10px] border-[1px] border-[#0085FF] pt-[50px] pb-[20px]"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="flex justify-between ">
             <div
               className="change-slide-arrow-left hover:cursor-pointer flex items-center justify-start min-w-[35px] w-[5%] max-w-[100px]"
