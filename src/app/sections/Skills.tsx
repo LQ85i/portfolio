@@ -100,10 +100,12 @@ const Skills: React.FC = () => {
   };
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
-    if (e.currentTarget.classList.contains("arrow")) {
+    const element = e.currentTarget;
+    if (element.classList.contains("arrow")) {
       if (e.currentTarget.children[0].classList.contains("arrow-right")) {
         if (skillTables.current && skillTables.current.parentNode) {
           const parent = skillTables.current.parentNode as HTMLElement;
+          
           skillTables.current.scrollTo({
             top: 0,
             left: skillTables.current.scrollLeft + parent.offsetWidth,
@@ -123,7 +125,35 @@ const Skills: React.FC = () => {
     }
   };
 
-
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
+    
+    console.log("???");
+    if(e.key !== "Tab") {
+      // makes sure tab still works when focused, 
+      // while preventing default arrow key scroll
+      e.preventDefault();
+    }
+    
+    if (e.key === "ArrowRight") {
+      if (skillTables.current && skillTables.current.parentNode) {
+        const parent = skillTables.current.parentNode as HTMLElement;
+        skillTables.current.scrollTo({
+          top: 0,
+          left: skillTables.current.scrollLeft + parent.offsetWidth,
+          behavior: "smooth",
+        });
+      }
+    } else if (e.key === "ArrowLeft") {
+      if (skillTables.current && skillTables.current.parentNode) {
+        const parent = skillTables.current.parentNode as HTMLElement;
+        skillTables.current.scrollTo({
+          top: 0,
+          left: skillTables.current.scrollLeft - parent.offsetWidth,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
 
   return (
     <>
@@ -136,6 +166,8 @@ const Skills: React.FC = () => {
         <div
           className="skill-tables flex mx-[5px] mt-[30px] justify-center overflow-auto gap-[20px]"
           ref={skillTables}
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
         >
           <section className="min-w-[306px]">
             <div className="arrow min-w-[35px]  max-w-[100px]">

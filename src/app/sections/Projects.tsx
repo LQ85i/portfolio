@@ -47,7 +47,10 @@ const Projects: React.FC = () => {
             <li>Firebase - Cloud Firestore</li>
           </ul>
           <br />
-          <p>Extra effort was put on zooming towards cursor on desktop and keeping the UI within viewport at all resolutions.</p>
+          <p>
+            Extra effort was put on zooming towards cursor on desktop and
+            keeping the UI within viewport at all resolutions.
+          </p>
         </div>
       ),
       imgSrc: img_picture_tag,
@@ -195,8 +198,10 @@ const Projects: React.FC = () => {
     }
     return (
       <animated.div
-        className="flex w-[90%] flex-col md:flex-row md:justify-center justify-start"
+        className="project-slides flex w-[90%] flex-col md:flex-row md:justify-center justify-start"
         style={fadeProps}
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
       >
         <div className="min-w-[40%] md:w-auto max-w-[362px] mx-auto min-h-[350px] max-h-[350px] md:min-h-[493px] md:max-h-[493px] flex md:items-center">
           <Image
@@ -218,14 +223,14 @@ const Projects: React.FC = () => {
           </div>
           <div className="mt-auto">
             <div className="flex flex-wrap xs:flex-nowrap gap-x-[25px] gap-y-[20px] justify-center md:justify-start mb-2px h-min">
-              <a href={projectData[slideIndex].deploySrc}>
+              <a href={projectData[slideIndex].deploySrc} tabIndex={-1}>
                 <button
                   className={`${dm_sans.variable} font-dm_sans w-max text-[16px] h-[50px] px-[20px]  rounded-[10px] border-[#00C2FF] border-[1px] project-button`}
                 >
                   Deployed Here
                 </button>
               </a>
-              <a href={projectData[slideIndex].gitSrc}>
+              <a href={projectData[slideIndex].gitSrc} tabIndex={-1}>
                 <button
                   className={`${dm_sans.variable} font-dm_sans w-max text-[16px] h-[50px] px-[20px]  rounded-[10px] border-[#00C2FF] border-[1px] project-button`}
                 >
@@ -248,6 +253,8 @@ const Projects: React.FC = () => {
           key={i}
           data-key={i}
           onClick={handleClick}
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
         >
           <Image
             className="max-w-[20px] max-h-[20px] min-h-[20px] min-w-[20px]"
@@ -262,7 +269,41 @@ const Projects: React.FC = () => {
     return arr;
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
+    if (slideIsFading) {
+      // prevents spam clicking, keeps animation intact
+      return;
+    }
+    const element = e.currentTarget;
+
+    if (element.classList.contains("project-slides")) {
+      if (e.key === "ArrowRight") {
+        slideRight();
+      } else if (e.key === "ArrowLeft") {
+        slideLeft();
+      }
+    }
+
+    if (e.key === "Enter") {
+      if (element.classList.contains("change-slide-circle")) {
+        const key = element.getAttribute("data-key");
+        if (key != null) {
+          const index = parseInt(key) + 1;
+          if (index != activeSlide) {
+            setActiveSlide(index);
+            setSlideIsFading(true);
+            setHoldSlide(activeSlide);
+          }
+        }
+      }
+    }
+
+    return;
+  };
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): void => {
     if (slideIsFading) {
       // prevents spam clicking, keeps animation intact
       return;

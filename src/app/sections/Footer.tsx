@@ -24,6 +24,9 @@ const Footer: React.FC = () => {
           <br />
           Back-end built with Express and hosted on Fly.io.
           Emails handled using react-email.
+          <br />
+          <a className="underline" href="https://github.com/LQ85i/portfolio">See source code here</a>
+          
         </div>
       </div>
     </>

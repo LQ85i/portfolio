@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
         <p
           className={`text-white mt-[82px] ${dm_sans.variable} font-dm_sans xs:text-[30px] text-[25px] text-center `}
         >
-          I am currently available for work.
+          I am currently available for work. <br /> I live in Finland.
         </p>
         <div
           className={`${dm_sans.variable} font-dm_sans flex flex-col items-center mt-[90px] max-w-[950px] w-[95vw] rounded-tl-[50px] rounded-tr-[50px] contact-form-background`}
