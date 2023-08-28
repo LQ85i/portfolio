@@ -18,12 +18,11 @@ const dm_sans = DM_Sans({
 const Footer: React.FC = () => {
   return (
     <>
-      <div className="flex justify-center xs:text-[16px] text-[14px] text-center mt-[200px] mb-0 text-[#00F0FF] w-full px-[20px] pb-[20px] py-[40px]">
+      <div className="flex justify-center xs:text-[16px] text-[14px] text-center mt-[100px] mb-0 text-[#00F0FF] w-full px-[20px] pb-[20px] py-[40px]">
         <div className={`${dm_sans.variable} footer-content font-inter font-[400] `}>
-          Website built with create-next-app, using NextJS, TypeScript and
-          Tailwind CSS.
+          {"Front-end built with NextJS, TypeScript and Tailwind CSS."}
           <br />
-          Back-end for contact form built with Express and hosted on Fly.io.
+          Back-end built with Express and hosted on Fly.io.
           Emails handled using react-email.
         </div>
       </div>

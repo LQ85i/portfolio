@@ -40,11 +40,9 @@ const Contact: React.FC = () => {
       );
       // Handle success
       setEmailStatus("success");
-      console.log(response);
     } catch (error) {
       // Handle error
       setEmailStatus("error");
-      console.log(error);
     }
   };
   return (

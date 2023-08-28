@@ -4,6 +4,7 @@ import img_picture_tag from "../assets/images/project-picture-tag.png";
 import img_memory_game from "../assets/images/project-memory-game.png";
 import img_shopping_cart from "../assets/images/project-shopping-cart.png";
 import img_battleships from "../assets/images/project-battleships.png";
+import img_calculator from "../assets/images/project-calculator.png";
 import icon_arrow_left from "../assets/images/icon_arrow_left.svg";
 import icon_arrow_right from "../assets/images/icon_arrow_right.svg";
 import icon_circle from "../assets/images/icon_circle.svg";
@@ -31,15 +32,22 @@ const Projects: React.FC = () => {
       title: "Picture Tag: Rats",
       description: (
         <div>
-          Includes:
+          <p>Summary:</p>
           <ul className="list-disc ml-[20px]">
-            <li>in-app instructions</li>
-            <li>responsive design with mobile support</li>
-            <li>online leaderboard</li>
-            <li>full game-loop with randomized characters</li>
-            <li>back-end data validation</li>
-            <li>animations</li>
+            <li>
+              Find specific characters within a large wimmelbilder picture and
+              save your time on an online leaderboard
+            </li>
+            <li>Desktop and mobile support</li>
           </ul>
+          <br />
+          <p>Developed with:</p>
+          <ul className="list-disc ml-[20px]">
+            <li>HTML, CSS, JavaScript, React</li>
+            <li>Firebase - Cloud Firestore</li>
+          </ul>
+          <br />
+          <p>Extra effort was put on zooming towards cursor on desktop and keeping the UI within viewport at all resolutions.</p>
         </div>
       ),
       imgSrc: img_picture_tag,
@@ -50,14 +58,18 @@ const Projects: React.FC = () => {
       title: "Shopping Cart Demo",
       description: (
         <div>
-          Includes:
+          <p>Summary:</p>
           <ul className="list-disc ml-[20px]">
-            <li>in-app instructions</li>
-            <li>responsive design with mobile support</li>
-            <li>online leaderboard</li>
-            <li>full game-loop with randomized characters</li>
-            <li>back-end data validation</li>
-            <li>animations</li>
+            <li>
+              An online store template with a landing page and a store page
+            </li>
+            <li>{"Includes a shopping cart (no checkout / back-end)"}</li>
+            <li>Desktop and mobile support</li>
+          </ul>
+          <br />
+          <p>Developed with:</p>
+          <ul className="list-disc ml-[20px]">
+            <li>HTML, CSS, JavaScript, React</li>
           </ul>
         </div>
       ),
@@ -69,14 +81,18 @@ const Projects: React.FC = () => {
       title: "Memory Card Game",
       description: (
         <div>
-          Includes:
+          <p>Summary:</p>
           <ul className="list-disc ml-[20px]">
-            <li>in-app instructions</li>
-            <li>responsive design with mobile support</li>
-            <li>online leaderboard</li>
-            <li>full game-loop with randomized characters</li>
-            <li>back-end data validation</li>
-            <li>animations</li>
+            <li>Click unique cards in row to collect points</li>
+            <li>
+              Every 5 points increases the amount of visible cards, up to 30
+            </li>
+            <li>Desktop and mobile support</li>
+          </ul>
+          <br />
+          <p>Developed with:</p>
+          <ul className="list-disc ml-[20px]">
+            <li>HTML, CSS, JavaScript, React</li>
           </ul>
         </div>
       ),
@@ -88,39 +104,44 @@ const Projects: React.FC = () => {
       title: "Battleships Game",
       description: (
         <div>
-          Includes:
+          <p>Summary:</p>
           <ul className="list-disc ml-[20px]">
-            <li>in-app instructions</li>
-            <li>responsive design with mobile support</li>
-            <li>online leaderboard</li>
-            <li>full game-loop with randomized characters</li>
-            <li>back-end data validation</li>
-            <li>animations</li>
+            <li>Classic battleships game where you play against computer</li>
+            <li>Includes visual feedback on cells where ship can&apos;t be</li>
+            <li>Computer uses algorithm to fire near hits to sink full ship</li>
+          </ul>
+          <br />
+          <p>Developed with:</p>
+          <ul className="list-disc ml-[20px]">
+            <li>HTML, CSS, JavaScript, Jest</li>
+            <li>Test-first approach</li>
           </ul>
         </div>
       ),
       imgSrc: img_battleships,
-      gitSrc: "",
-      deploySrc: "",
+      gitSrc: "https://github.com/LQ85i/js-project-14",
+      deploySrc: "https://lq85i.github.io/js-project-14/",
     },
     {
-      title: "Memory Card Game",
+      title: "Calculator",
       description: (
         <div>
-          Includes:
+          <p>Summary:</p>
           <ul className="list-disc ml-[20px]">
-            <li>in-app instructions</li>
-            <li>responsive design with mobile support</li>
-            <li>online leaderboard</li>
-            <li>full game-loop with randomized characters</li>
-            <li>back-end data validation</li>
-            <li>animations</li>
+            <li>Includes basic operators, pi, parentheses, decimals</li>
+            <li>You can chain operations </li>
+            <li>Keyboard support</li>
+          </ul>
+          <br />
+          <p>Developed with:</p>
+          <ul className="list-disc ml-[20px]">
+            <li>HTML, CSS, JavaScript</li>
           </ul>
         </div>
       ),
-      imgSrc: img_memory_game,
-      gitSrc: "",
-      deploySrc: "",
+      imgSrc: img_calculator,
+      gitSrc: "https://github.com/LQ85i/project-4",
+      deploySrc: "https://lq85i.github.io/project-4/",
     },
   ];
 
@@ -192,7 +213,7 @@ const Projects: React.FC = () => {
           >
             {projectData[slideIndex].title}
           </h2>
-          <div className="min-h-[300px] md:text-[22px] sm:text-[20px] xs:text-[18px] text-[16px] md:mt-[30px] mt-[20px] mb-[30px] xxs:ml-[5%] md:ml-0">
+          <div className="min-h-[300px] lg:text-[20px] md:text-[16px] sm:text-[20px] text-[16px] md:mt-[30px] mt-[20px] mb-[30px] xxs:ml-[5%] md:ml-0">
             {projectData[slideIndex].description}
           </div>
           <div className="mt-auto">
@@ -301,7 +322,7 @@ const Projects: React.FC = () => {
     const swipeDistanceY = touchEndY - touchStartY;
     const swipeThreshold = 50;
 
-    if(Math.abs(swipeDistanceY) > swipeThreshold) {
+    if (Math.abs(swipeDistanceY) > swipeThreshold) {
       // Prevents slide changes on vertical swiping
       return;
     }
