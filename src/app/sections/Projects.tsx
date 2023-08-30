@@ -26,128 +26,129 @@ const dm_sans = DM_Sans({
   variable: "--font-dm-sans",
 });
 
-const Projects: React.FC = () => {
-  const projectData = [
-    {
-      title: "Picture Tag: Rats",
-      description: (
-        <div>
-          <p>Summary:</p>
-          <ul className="list-disc ml-[20px]">
-            <li>
-              Find specific characters within a large wimmelbilder picture and
-              save your time on an online leaderboard
-            </li>
-            <li>Desktop and mobile support</li>
-          </ul>
-          <br />
-          <p>Developed with:</p>
-          <ul className="list-disc ml-[20px]">
-            <li>HTML, CSS, JavaScript, React</li>
-            <li>Firebase - Cloud Firestore</li>
-          </ul>
-          <br />
-          <p>
-            Extra effort was put on zooming towards cursor on desktop and
-            keeping the UI within viewport at all resolutions.
-          </p>
-        </div>
-      ),
-      imgSrc: img_picture_tag,
-      gitSrc: "https://github.com/LQ85i/firebase-project-2",
-      deploySrc: "https://lq85i.github.io/firebase-project-2",
-    },
-    {
-      title: "Shopping Cart Demo",
-      description: (
-        <div>
-          <p>Summary:</p>
-          <ul className="list-disc ml-[20px]">
-            <li>
-              An online store template with a landing page and a store page
-            </li>
-            <li>{"Includes a shopping cart (no checkout / back-end)"}</li>
-            <li>Desktop and mobile support</li>
-          </ul>
-          <br />
-          <p>Developed with:</p>
-          <ul className="list-disc ml-[20px]">
-            <li>HTML, CSS, JavaScript, React</li>
-          </ul>
-        </div>
-      ),
-      imgSrc: img_shopping_cart,
-      gitSrc: "https://github.com/LQ85i/react-project-7",
-      deploySrc: "https://lq85i.github.io/react-project-7/",
-    },
-    {
-      title: "Memory Card Game",
-      description: (
-        <div>
-          <p>Summary:</p>
-          <ul className="list-disc ml-[20px]">
-            <li>Click unique cards in row to collect points</li>
-            <li>
-              Every 5 points increases the amount of visible cards, up to 30
-            </li>
-            <li>Desktop and mobile support</li>
-          </ul>
-          <br />
-          <p>Developed with:</p>
-          <ul className="list-disc ml-[20px]">
-            <li>HTML, CSS, JavaScript, React</li>
-          </ul>
-        </div>
-      ),
-      imgSrc: img_memory_game,
-      gitSrc: "https://github.com/LQ85i/react-project-4",
-      deploySrc: "https://lq85i.github.io/react-project-4/",
-    },
-    {
-      title: "Battleships Game",
-      description: (
-        <div>
-          <p>Summary:</p>
-          <ul className="list-disc ml-[20px]">
-            <li>Classic battleships game where you play against computer</li>
-            <li>Includes visual feedback on cells where ship can&apos;t be</li>
-            <li>Computer uses algorithm to fire near hits to sink full ship</li>
-          </ul>
-          <br />
-          <p>Developed with:</p>
-          <ul className="list-disc ml-[20px]">
-            <li>HTML, CSS, JavaScript, Jest</li>
-            <li>Test-first approach</li>
-          </ul>
-        </div>
-      ),
-      imgSrc: img_battleships,
-      gitSrc: "https://github.com/LQ85i/js-project-14",
-      deploySrc: "https://lq85i.github.io/js-project-14/",
-    },
-    {
-      title: "Calculator",
-      description: (
-        <div>
-          <p>Summary:</p>
-          <ul className="list-disc ml-[20px]">
-            <li>Includes basic operators, pi, parentheses, decimals</li>
-            <li>You can chain operations </li>
-            <li>Keyboard support</li>
-          </ul>
-          <br />
-          <p>Developed with:</p>
-          <ul className="list-disc ml-[20px]">
-            <li>HTML, CSS, JavaScript</li>
-          </ul>
-        </div>
-      ),
-      imgSrc: img_calculator,
-      gitSrc: "https://github.com/LQ85i/project-4",
-      deploySrc: "https://lq85i.github.io/project-4/",
-    },
-  ];
+const projectData = [
+  {
+    title: "Picture Tag: Rats",
+    description: (
+      <div>
+        <p>Summary:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>
+            Find specific characters within a large wimmelbilder picture and
+            save your time on an online leaderboard
+          </li>
+          <li>Desktop and mobile support</li>
+        </ul>
+        <br />
+        <p>Developed with:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>HTML, CSS, JavaScript, React</li>
+          <li>Firebase - Cloud Firestore</li>
+        </ul>
+        <br />
+        <p>
+          Extra effort was put on zooming towards cursor on desktop and
+          keeping the UI within viewport at all resolutions.
+        </p>
+      </div>
+    ),
+    imgSrc: img_picture_tag,
+    gitSrc: "https://github.com/LQ85i/firebase-project-2",
+    deploySrc: "https://lq85i.github.io/firebase-project-2",
+  },
+  {
+    title: "Shopping Cart Demo",
+    description: (
+      <div>
+        <p>Summary:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>
+            An online store template with a landing page and a store page
+          </li>
+          <li>{"Includes a shopping cart (no checkout / back-end)"}</li>
+          <li>Desktop and mobile support</li>
+        </ul>
+        <br />
+        <p>Developed with:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>HTML, CSS, JavaScript, React</li>
+        </ul>
+      </div>
+    ),
+    imgSrc: img_shopping_cart,
+    gitSrc: "https://github.com/LQ85i/react-project-7",
+    deploySrc: "https://lq85i.github.io/react-project-7/",
+  },
+  {
+    title: "Memory Card Game",
+    description: (
+      <div>
+        <p>Summary:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>Click unique cards in row to collect points</li>
+          <li>
+            Every 5 points increases the amount of visible cards, up to 30
+          </li>
+          <li>Desktop and mobile support</li>
+        </ul>
+        <br />
+        <p>Developed with:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>HTML, CSS, JavaScript, React</li>
+        </ul>
+      </div>
+    ),
+    imgSrc: img_memory_game,
+    gitSrc: "https://github.com/LQ85i/react-project-4",
+    deploySrc: "https://lq85i.github.io/react-project-4/",
+  },
+  {
+    title: "Battleships Game",
+    description: (
+      <div>
+        <p>Summary:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>Classic battleships game where you play against computer</li>
+          <li>Includes visual feedback on cells where ship can&apos;t be</li>
+          <li>Computer uses algorithm to fire near hits to sink full ship</li>
+        </ul>
+        <br />
+        <p>Developed with:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>HTML, CSS, JavaScript, Jest</li>
+          <li>Test-first approach</li>
+        </ul>
+      </div>
+    ),
+    imgSrc: img_battleships,
+    gitSrc: "https://github.com/LQ85i/js-project-14",
+    deploySrc: "https://lq85i.github.io/js-project-14/",
+  },
+  {
+    title: "Calculator",
+    description: (
+      <div>
+        <p>Summary:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>Includes basic operators, pi, parentheses, decimals</li>
+          <li>You can chain operations </li>
+          <li>Keyboard support</li>
+        </ul>
+        <br />
+        <p>Developed with:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>HTML, CSS, JavaScript</li>
+        </ul>
+      </div>
+    ),
+    imgSrc: img_calculator,
+    gitSrc: "https://github.com/LQ85i/project-4",
+    deploySrc: "https://lq85i.github.io/project-4/",
+  },
+];
 
+const Projects: React.FC = () => {
+  
   const [activeSlide, setActiveSlide] = useState(1);
   const [holdSlide, setHoldSlide] = useState(-1);
   const [slideIsFading, setSlideIsFading] = useState(false);
