@@ -152,6 +152,7 @@ const Projects: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(1);
   const [holdSlide, setHoldSlide] = useState(-1);
   const [slideIsFading, setSlideIsFading] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(true);
 
   const [touchStartX, setTouchStartX] = useState(Number);
   const [touchStartY, setTouchStartY] = useState(Number);
@@ -185,6 +186,7 @@ const Projects: React.FC = () => {
     if (holdSlide !== -1) {
       const timeoutId = setTimeout(() => {
         setHoldSlide(-1);
+        setImageLoaded(false);
       }, 200);
       return () => clearTimeout(timeoutId);
     }
@@ -211,6 +213,10 @@ const Projects: React.FC = () => {
             height={493}
             src={projectData[slideIndex].imgSrc}
             alt="Picture of a project"
+            style={{
+              display: imageLoaded ? "block" : "none"
+            }}
+            onLoad={() => setImageLoaded(true)}
           />
         </div>
         <div className="min-w-[60%] md:pl-[50px] flex flex-col">
