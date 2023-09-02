@@ -29,6 +29,7 @@ Site content, single page:
 - Project slides
 - Skill tables
 - Contact form
+- Footer
 
 Technical features:
 - Responsive design for all resolutions down to 320px width

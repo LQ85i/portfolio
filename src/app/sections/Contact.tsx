@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
           Contact
         </h2>
         <p
-          className={`text-white mt-[82px] ${dm_sans.variable} font-dm_sans xs:text-[30px] text-[25px] text-center `}
+          className={`text-white mt-[82px] ${dm_sans.variable} max-w-[95vw] font-dm_sans xs:text-[30px] text-[25px] text-center `}
         >
           I am currently available for work. <br /> I live in Finland.
         </p>
