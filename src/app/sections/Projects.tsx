@@ -375,9 +375,9 @@ const Projects: React.FC = () => {
       return;
     }
     if (swipeDistanceX > swipeThreshold) {
-      slideRight();
-    } else if (swipeDistanceX < -swipeThreshold) {
       slideLeft();
+    } else if (swipeDistanceX < -swipeThreshold) {
+      slideRight();
     }
   };
 

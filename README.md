@@ -20,6 +20,7 @@ Site is tested on:
 - Firefox 117
 - Chrome 116
 - Chrome android 116
+- Safari iOS 16.6
 
 ## Includes
 
