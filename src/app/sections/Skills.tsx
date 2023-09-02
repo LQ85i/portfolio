@@ -126,8 +126,6 @@ const Skills: React.FC = () => {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
-    
-    console.log("???");
     if(e.key !== "Tab") {
       // makes sure tab still works when focused, 
       // while preventing default arrow key scroll
