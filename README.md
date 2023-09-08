@@ -1,6 +1,6 @@
 # Portfolio website of LQ85i
 
-Deployed live here: https://lq85i.github.io/portfolio/
+Deployed live here: https://portfolio-lq85i.vercel.app/
 
 ## Developed with
 
