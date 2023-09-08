@@ -15,11 +15,12 @@ const Footer: React.FC = () => {
         <div className={`${dm_sans.variable} footer-content font-inter font-[400] `}>
           {"Front-end built with NextJS, TypeScript and Tailwind CSS."}
           <br />
-          Back-end built with Express and hosted on Fly.io.
-          Emails handled using react-email with nodemailer.
+          <span>Back-end built with Express and hosted on Fly.io.
+          Emails handled using react-email with nodemailer.</span>
           <br />
           <a className="underline" href="https://github.com/LQ85i/portfolio">See source code here</a>
-          
+          <br />
+          <span className="text-[12px]">Copyright © 2023 LQ85i</span>
         </div>
       </div>
     </>

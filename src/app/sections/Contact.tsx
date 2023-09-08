@@ -8,6 +8,9 @@ import icon_error from "../assets/images/icon_error.svg";
 import axios, { AxiosResponse } from "axios";
 import "../styles/Contact.css";
 
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { verifyCaptchaAction } from "@/app/_actions/Captcha";
+
 const days_one = Days_One({
   weight: "400",
   subsets: ["latin"],
@@ -24,25 +27,40 @@ const Contact: React.FC = () => {
   // email status: "error" / "pending" / "success"
   const [emailStatus, setEmailStatus] = useState<string>("");
 
+  // initialises the powerful hook that is in charge of executing the
+  // reCAPTCHA behind the scenes.
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const jsonObject = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    };
-    try {
-      setEmailStatus("pending");
-      const response: AxiosResponse = await axios.post(
-        "https://portfolio-server15389.fly.dev/send-email",
-        jsonObject
-      );
-      // Handle success
-      setEmailStatus("success");
-    } catch (error) {
-      // Handle error
-      setEmailStatus("error");
+    // if the component is not mounted yet
+    if (!executeRecaptcha) {
+      return;
+    }
+    // receive a token
+    const token = await executeRecaptcha("onSubmit");
+    // validate the token via the server action we've created previously
+    const verified = await verifyCaptchaAction(token);
+
+    if (verified) {
+      const jsonObject = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+      };
+      try {
+        setEmailStatus("pending");
+        const response: AxiosResponse = await axios.post(
+          "https://portfolio-server15389.fly.dev/send-email",
+          jsonObject
+        );
+        // Handle success
+        setEmailStatus("success");
+      } catch (error) {
+        // Handle error
+        setEmailStatus("error");
+      }
     }
   };
   return (
@@ -105,6 +123,18 @@ const Contact: React.FC = () => {
                 required
               ></textarea>
             </label>
+            <div className="text-[#aefaff] mt-[10px] max-w-[700px] w-[70vw] min-w-[200px] text-center xs:text-[15px] text-[13px]">
+              <span>This site is protected by reCAPTCHA and the Google</span>
+              {" "}
+              <a className="underline" href="https://policies.google.com/privacy">
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a className="underline" href="https://policies.google.com/terms">
+              Terms of Service
+              </a>{" "}
+              apply.
+            </div>
             <input
               className="w-[170px] h-[50px] mt-[35px] rounded-[10px] border-[#00C2FF] border-[1px] contact-form-send"
               type="submit"
@@ -134,8 +164,7 @@ const Contact: React.FC = () => {
                   (emailStatus === "error" ? "" : " hidden")
                 }
               >
-                Server error. <br /> Please send me email at
-                LQ85i.dev@gmail.com
+                Server error. <br /> Please send me email at LQ85i.dev@gmail.com
               </p>
             </div>
           </form>
