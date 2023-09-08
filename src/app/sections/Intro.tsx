@@ -60,11 +60,13 @@ const Intro: React.FC = () => {
             Previously automation engineering student, learned web development
             through The Odin Project. <br />
             <br />
-            I don&apos;t have professional experience yet, but I hope this portfolio together with my other projects shows my potential for growth.
+            I don&apos;t have professional experience yet, but I hope this
+            portfolio together with my other projects shows my potential for
+            growth.
             <br />
             <br />
-            I&apos;m more front-end focused but can handle the basics of back-end.
-            I have passion for explorative, yet functional design.
+            I&apos;m more front-end focused but can handle the basics of
+            back-end. My strengths are innovation, perception and perseverance.
           </p>
         </div>
       </div>
