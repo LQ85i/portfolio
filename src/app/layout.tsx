@@ -20,6 +20,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  //redirect to new url
+  if (window.location.href==="https://lq85i.github.io/portfolio/") {
+    window.location.href = "https://portfolio-lq85i.vercel.app/"; 
+}
+
   return (
     <html lang="en">
       <body className={inter.className}>
