@@ -31,7 +31,7 @@ const Intro: React.FC = () => {
               <br />
               I&apos;m Jaakko,
               <br />
-              <br /> a Full Stack Developer and this is my portfolio website.
+              <br /> a Front-end Developer and this is my portfolio website.
             </p>
           </div>
         </div>
@@ -50,23 +50,19 @@ const Intro: React.FC = () => {
             <div className="main-skill-background px-[29px] py-[6px]">
               ReactJS
             </div>
-            <div className="main-skill-background px-[29px] py-[6px]">
-              NodeJS
-            </div>
           </div>
         </div>
         <div className="xs:mx-auto ml-[3vw] rounded-[20px] mt-[60px]  profile-text-background flex items-center justify-center px-[10px] py-[10px]">
           <p className="text-white p-[10px] rounded-[10px] bg-[#000A1D] xs:text-[20px] sm:text-[24px] text-[18px] text-center">
             Previously automation engineering student, learned web development
-            through The Odin Project. <br />
+            through The Odin Project.<br />
             <br />
             I don&apos;t have professional experience yet, but I hope this
             portfolio together with my other projects shows my potential for
             growth.
             <br />
             <br />
-            I&apos;m more front-end focused but can handle the basics of
-            back-end. My strengths are innovation, perception and perseverance.
+            I&apos;m aiming towards Full Stack knowledge but not quite there yet. My strengths are innovation, perception and perseverance.
           </p>
         </div>
       </div>
