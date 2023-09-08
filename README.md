@@ -40,7 +40,7 @@ Technical features:
 - Keyboard and touch navigation:
     - presentations support swipes and arrow keys
     - all interactive elements can be tab-keyed into
-
+- ReCAPTCHA v3 for protecting contact form
 
 ## Contact form details
 
