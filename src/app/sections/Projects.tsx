@@ -5,6 +5,7 @@ import img_memory_game from "../assets/images/project-memory-game.png";
 import img_shopping_cart from "../assets/images/project-shopping-cart.png";
 import img_battleships from "../assets/images/project-battleships.png";
 import img_calculator from "../assets/images/project-calculator.png";
+import img_todo from "../assets/images/project-todo.png";
 import icon_arrow_left from "../assets/images/icon_arrow_left.svg";
 import icon_arrow_right from "../assets/images/icon_arrow_right.svg";
 import icon_circle from "../assets/images/icon_circle.svg";
@@ -145,6 +146,30 @@ const projectData = [
     gitSrc: "https://github.com/LQ85i/project-4",
     deploySrc: "https://lq85i.github.io/project-4/",
   },
+  {
+    title: "ToDo Lists",
+    description: (
+      <div>
+        <p>Summary:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>Add todos with name, description, due date, priority and project</li>
+          <li>Sort todos by today, upcoming, high priority or project</li>
+          <li>Buttons to complete and delete todos</li>
+          <li>Auto-save and load todos in LocalStorage</li>
+        </ul>
+        <br />
+        <p>Developed with:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>HTML, CSS, JavaScript</li>
+          <li>Webpack</li>
+          <li>LocalStorage</li>
+        </ul>
+      </div>
+    ),
+    imgSrc: img_todo,
+    gitSrc: "https://github.com/LQ85i/js-project-4",
+    deploySrc: "https://lq85i.github.io/js-project-4/",
+  },
 ];
 
 const Projects: React.FC = () => {
@@ -206,11 +231,9 @@ const Projects: React.FC = () => {
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        <div className="min-w-[40%] md:w-auto max-w-[362px] mx-auto min-h-[350px] max-h-[350px] md:min-h-[493px] md:max-h-[493px] flex md:items-center">
+        <div className="min-w-[40%] md:w-auto max-w-[362px] md:max-w-[500px] mx-auto min-h-[350px] max-h-[350px] md:min-h-[493px] md:max-h-[493px] flex md:items-center">
           <Image
-            className="h-full w-auto md:max-w-[362px] mx-auto md:h-auto md:w-full md:max-h-[493px] md:my-auto"
-            width={362}
-            height={493}
+            className="h-auto w-auto mx-auto md:max-h-[493px] md:my-auto"
             src={projectData[slideIndex].imgSrc}
             alt="Picture of a project"
             style={{
@@ -402,11 +425,11 @@ const Projects: React.FC = () => {
         >
           <div className="flex justify-between ">
             <div
-              className="change-slide-arrow-left hover:cursor-pointer flex items-center justify-start min-w-[35px] w-[5%] max-w-[100px]"
+              className="change-slide-arrow-left hover:cursor-pointer flex justify-start min-w-[35px] w-[5%] max-w-[100px]"
               onClick={handleClick}
             >
               <Image
-                className="icon-filter-bw"
+                className="icon-filter-bw self-start mt-[360px] md:mt-0 md:self-center"
                 width={48}
                 height={48}
                 src={icon_arrow_left}
@@ -415,11 +438,11 @@ const Projects: React.FC = () => {
             </div>
             {getSlide()}
             <div
-              className="change-slide-arrow-right hover:cursor-pointer flex items-center justify-end min-w-[35px] w-[5%] max-w-[100px]"
+              className="change-slide-arrow-right hover:cursor-pointer flex justify-end min-w-[35px] w-[5%] max-w-[100px]"
               onClick={handleClick}
             >
               <Image
-                className="icon-filter-bw"
+                className="icon-filter-bw self-start mt-[360px] md:mt-0 md:self-center"
                 width={48}
                 height={48}
                 src={icon_arrow_right}
