@@ -108,7 +108,7 @@ const Skills: React.FC = () => {
       if (e.currentTarget.children[0].classList.contains("arrow-right")) {
         if (skillTables.current && skillTables.current.parentNode) {
           const parent = skillTables.current.parentNode as HTMLElement;
-          
+
           skillTables.current.scrollTo({
             top: 0,
             left: skillTables.current.scrollLeft + parent.offsetWidth,
@@ -129,12 +129,12 @@ const Skills: React.FC = () => {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
-    if(e.key !== "Tab") {
-      // makes sure tab still works when focused, 
+    if (e.key !== "Tab") {
+      // makes sure tab still works when focused,
       // while preventing default arrow key scroll
       e.preventDefault();
     }
-    
+
     if (e.key === "ArrowRight") {
       if (skillTables.current && skillTables.current.parentNode) {
         const parent = skillTables.current.parentNode as HTMLElement;
@@ -171,7 +171,7 @@ const Skills: React.FC = () => {
           tabIndex={0}
         >
           <section className="min-w-[306px]">
-            <div className="arrow min-w-[35px]  max-w-[100px]">
+            <div className="arrow min-w-[35px] w-full ">
               <div className="arrow-left max-w-0"></div>
             </div>
             <table>
@@ -242,7 +242,7 @@ const Skills: React.FC = () => {
               </tbody>
             </table>
             <div
-              className="arrow items-center min-w-[35px] max-w-[100px] hover:cursor-pointer"
+              className="arrow items-center min-w-[35px] justify-end w-full  hover:cursor-pointer"
               onClick={handleClick}
             >
               <Image
@@ -256,7 +256,7 @@ const Skills: React.FC = () => {
           </section>
           <section className="min-w-[306px]">
             <div
-              className="arrow items-center min-w-[35px] max-w-[100px] hover:cursor-pointer"
+              className="arrow items-center min-w-[35px] justify-start w-full  hover:cursor-pointer"
               onClick={handleClick}
             >
               <Image
@@ -344,7 +344,7 @@ const Skills: React.FC = () => {
             </table>
 
             <div
-              className="arrow items-center min-w-[35px] max-w-[100px] hover:cursor-pointer"
+              className="arrow items-center min-w-[35px] justify-end w-full  hover:cursor-pointer"
               onClick={handleClick}
             >
               <Image
@@ -358,7 +358,7 @@ const Skills: React.FC = () => {
           </section>
           <section className="min-w-[306px]">
             <div
-              className="arrow items-center min-w-[35px] max-w-[100px] hover:cursor-pointer"
+              className="arrow items-center min-w-[35px] justify-start w-full  hover:cursor-pointer"
               onClick={handleClick}
             >
               <Image
@@ -445,7 +445,7 @@ const Skills: React.FC = () => {
               </tbody>
             </table>
 
-            <div className="arrow min-w-[35px] max-w-[100px]">
+            <div className="arrow min-w-[35px] w-full ">
               <div className="arrow-right max-w-0"></div>
             </div>
           </section>
