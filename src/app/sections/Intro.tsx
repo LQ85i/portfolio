@@ -54,15 +54,16 @@ const Intro: React.FC = () => {
         </div>
         <div className="xs:mx-auto ml-[3vw] rounded-[20px] mt-[60px]  profile-text-background flex items-center justify-center px-[10px] py-[10px]">
           <p className="text-white p-[10px] rounded-[10px] bg-[#000A1D] xs:text-[20px] sm:text-[24px] text-[18px] text-center">
-            Previously automation engineering student, learned web development
-            through The Odin Project.<br />
-            <br />
-            I don&apos;t have professional experience yet, but I hope this
-            portfolio together with my other projects shows my potential for
-            growth.
+            Previously automation engineering student, studied web development
+            through The Odin Project. I have always been drawn to computers so
+            building a career out of it is an obvious choice for me.
             <br />
             <br />
-            I&apos;m aiming towards Full Stack knowledge but not quite there yet. My strengths are innovation, perception and perseverance.
+            My personality of always iterating makes me a very good fit for the
+            rapidly changing nature of web development. For example this
+            portfolio, I did not know the main technologies when I started.
+            Diving head first into them was a very satisfying challenge to
+            complete.
           </p>
         </div>
       </div>
