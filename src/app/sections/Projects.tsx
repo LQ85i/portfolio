@@ -118,6 +118,7 @@ const projectData = [
         <ul className="list-disc ml-[20px]">
           <li>HTML, CSS, JavaScript, Jest</li>
           <li>Test-first approach</li>
+          <li>Webpack</li>
         </ul>
       </div>
     ),
