@@ -31,7 +31,7 @@ const Intro: React.FC = () => {
               <br />
               I&apos;m Jaakko,
               <br />
-              <br /> a Front-end Developer and this is my portfolio website.
+              <br /> a Junior Full Stack Developer and this is my portfolio website.
             </p>
           </div>
         </div>
