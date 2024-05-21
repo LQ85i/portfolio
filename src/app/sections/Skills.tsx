@@ -22,17 +22,17 @@ const Skills: React.FC = () => {
     CSS: 3.5,
     JavaScript: 4,
     ReactJS: 3,
-    TailwindCSS: 1.5,
+    TailwindCSS: 2,
     TypeScript: 1,
     NextJS: 1,
     NodeJS: 2.5,
-    Express: 1.5,
+    Express: 3,
     Firebase: 2,
     MongoDB: 3,
     SQL: 2.5,
     MySQL: 1.5,
     REST: 1,
-    Pug: 1,
+    Pug: 3,
     Figma: 1.5,
     Java: 3.5,
     C: 3.5,
@@ -239,6 +239,14 @@ const Skills: React.FC = () => {
                     {renderSkillStars("NextJS")}
                   </td>
                 </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
+                    Pug
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
+                    {renderSkillStars("Pug")}
+                  </td>
+                </tr>
               </tbody>
             </table>
             <div
@@ -330,14 +338,6 @@ const Skills: React.FC = () => {
                   </td>
                   <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("REST")}
-                  </td>
-                </tr>
-                <tr className="skill-table-row px-[10px] xxs:px[15px]">
-                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
-                    Pug
-                  </td>
-                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
-                    {renderSkillStars("Pug")}
                   </td>
                 </tr>
               </tbody>

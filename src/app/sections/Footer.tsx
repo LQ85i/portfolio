@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           <br />
           <a className="underline" href="https://github.com/LQ85i/portfolio">See source code here</a>
           <br />
-          <span className="text-[12px]">Copyright © 2023 LQ85i</span>
+          <span className="text-[12px]">Website by <a className="underline" href="https://github.com/LQ85i">LQ85i</a>. Last updated May 2024.</span>
         </div>
       </div>
     </>

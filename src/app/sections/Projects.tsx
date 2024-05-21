@@ -6,6 +6,7 @@ import img_shopping_cart from "../assets/images/project-shopping-cart.png";
 import img_battleships from "../assets/images/project-battleships.png";
 import img_calculator from "../assets/images/project-calculator.png";
 import img_todo from "../assets/images/project-todo.png";
+import img_inventory_app from "../assets/images/project-inventory-app.png";
 import icon_arrow_left from "../assets/images/icon_arrow_left.svg";
 import icon_arrow_right from "../assets/images/icon_arrow_right.svg";
 import icon_circle from "../assets/images/icon_circle.svg";
@@ -28,6 +29,35 @@ const dm_sans = DM_Sans({
 });
 
 const projectData = [
+  {
+    title: "Inventory Management App",
+    description: (
+      <div>
+        <p>Summary:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>
+            Sign in and manage inventory categories and items
+          </li>
+          <li>Showcases my learning in CRUD-methods, MVC design pattern, authentication and serverside rendering</li>
+        </ul>
+        <br />
+        <p>Developed with:</p>
+        <ul className="list-disc ml-[20px]">
+          <li>Pug, Tailwind CSS and JavaScript</li>
+          <li>Express, MongoDB, PassportJS and Bcrypt</li>
+        </ul>
+        <br />
+        <p>
+          Includes error page for unauthorized attempts.
+        </p>
+        <br />
+        <p className="text-xs">&#40;Session will timeout after some inactivity, feature of fly.io&#41;</p>
+      </div>
+    ),
+    imgSrc: img_inventory_app,
+    gitSrc: "https://github.com/LQ85i/inventory-app",
+    deploySrc: "https://inventory-app-lq85i.fly.dev/"
+  },
   {
     title: "Picture Tag: Rats",
     description: (

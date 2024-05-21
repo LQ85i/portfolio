@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
           Contact
         </h2>
         <p
-          className={`text-white mt-[82px] ${dm_sans.variable} max-w-[95vw] font-dm_sans xs:text-[30px] text-[25px] text-center `}
+          className={`text-white mt-[62px] ${dm_sans.variable} max-w-[95vw] font-dm_sans xs:text-[30px] text-[25px] text-center `}
         >
           I am currently available for work. <br /> I live in Finland.
         </p>
@@ -86,6 +86,7 @@ const Contact: React.FC = () => {
           >
             Send me a message:
           </h2>
+          <p className="text-white">Or a direct email: LQ85i.dev@gmail.com</p>
           <form
             className="flex flex-col items-center text-white text-[25px]"
             action=""
