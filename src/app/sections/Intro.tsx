@@ -50,6 +50,12 @@ const Intro: React.FC = () => {
             <div className="main-skill-background px-[29px] py-[6px]">
               ReactJS
             </div>
+            <div className="main-skill-background px-[29px] py-[6px]">
+              Express
+            </div>
+            <div className="main-skill-background px-[29px] py-[6px]">
+              MongoDB
+            </div>
           </div>
         </div>
         <div className="xs:mx-auto ml-[3vw] rounded-[20px] mt-[60px]  profile-text-background flex items-center justify-center px-[10px] py-[10px]">
