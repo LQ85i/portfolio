@@ -6,9 +6,6 @@ const nextConfig = {
     // fixes bug where font is not loading
     styledComponents: true
   },
-  experimental: {
-    serverActions: true,
-  },
 }
 
 module.exports = nextConfig
