@@ -41,6 +41,8 @@ const Skills: React.FC = () => {
     Python: 3.5,
     Git: 2.5,
     ChatGPT: 3,
+    Azure: 1,
+    AutoHotkey: 2
   };
 
   const renderSkillStars = (skill: string) => {
@@ -340,6 +342,14 @@ const Skills: React.FC = () => {
                     {renderSkillStars("REST")}
                   </td>
                 </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
+                    Azure
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
+                    {renderSkillStars("Azure")}
+                  </td>
+                </tr>
               </tbody>
             </table>
 
@@ -440,6 +450,14 @@ const Skills: React.FC = () => {
                   </td>
                   <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
                     {renderSkillStars("ChatGPT")}
+                  </td>
+                </tr>
+                <tr className="skill-table-row px-[10px] xxs:px[15px]">
+                  <td className="skill-table-div text-[12px] xxs:text-[14px] xs:text-[20px] xxs:min-w-[120px] xs:min-w-[153px] min-w-[80px]">
+                    AutoHotkey
+                  </td>
+                  <td className="flex gap-[5px] px-[5px] h-full items-center border-l-[3px] border-[#5282FF] min-w-[125px]">
+                    {renderSkillStars("AutoHotkey")}
                   </td>
                 </tr>
               </tbody>
